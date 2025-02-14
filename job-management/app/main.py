@@ -1,9 +1,11 @@
 from fastapi import FastAPI
-from app.routes import jobs
+from app.crud.job import router as job_router
 
 app = FastAPI()
 
-app.include_router(jobs.router)
+# Include the job router
+app.include_router(job_router)
+
 
 @app.get("/")
 def home():
