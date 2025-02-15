@@ -1,8 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.database.database import get_db
 from app.models.job import Job
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 router = APIRouter()
 
@@ -10,16 +10,16 @@ router = APIRouter()
 
 
 class JobCreate(BaseModel):
-    title: str = Field(..., min_length=3, max_length=100)
-    description: str = Field(..., min_length=5, max_length=500)
-    company: str = Field(..., min_length=2, max_length=100)
+    title: str
+    description: str
+    company: str
 
 # CREATE a new job
 
 
-@router.post("/jobs", response_model=JobCreate)
+@router.post("/jobs")
 def create_job(job: JobCreate, db: Session = Depends(get_db)):
-    new_job = Job(**job.dict())
+    new_job = Job(title=job.title, description=job.description, company=job.company)
     db.add(new_job)
     db.commit()
     db.refresh(new_job)
