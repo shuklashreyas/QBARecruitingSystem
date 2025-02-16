@@ -6,7 +6,7 @@ from datetime import timedelta
 from app.crud.job import router as job_router
 
 from app.routes.user import router as user_router
-from app.routes.job import router as job_router
+from app.routes.jobs import router as job_router
 from app.routes.auth import router as auth_router 
 
 app = FastAPI()
