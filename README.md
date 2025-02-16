@@ -229,7 +229,3 @@ For protected endpoints, include the **JWT token** in the request headers:
 - Role-based access control
 - Job search and filtering
 - Pagination for large job listings
-
----
-
-🚀 **Happy Coding!**
