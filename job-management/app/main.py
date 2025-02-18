@@ -3,21 +3,20 @@ from fastapi.security import OAuth2PasswordRequestForm
 from app.auth.auth import create_access_token, verify_password, get_password_hash, oauth2_scheme
 from pydantic import BaseModel
 from datetime import timedelta
-from app.crud.job import router as job_router
 
+# Import routers
 from app.routes.user import router as user_router
 from app.routes.jobs import router as job_router
 from app.routes.auth import router as auth_router 
 
 app = FastAPI()
 
-app.include_router(job_router)
-
+# Register routers
 app.include_router(auth_router, prefix="/auth", tags=["Auth"])
-app.include_router(user_router)
-app.include_router(job_router)
+app.include_router(user_router, prefix="/users", tags=["Users"])
+app.include_router(job_router, prefix="/jobs", tags=["Jobs"])
 
-# Fake user for testing (replace with database later)
+# Fake user for testing (Replace this with actual DB authentication)
 fake_users_db = {
     "admin": {"username": "admin", "password": get_password_hash("admin123")}
 }
@@ -39,6 +38,6 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
 def get_jobs(token: str = Depends(oauth2_scheme)):
     return {"message": "This is a protected job list"}
 
-@app.get("/")  # THIS IS REQUIRED
+@app.get("/")
 def home():
     return {"message": "Job Management API is running"}
