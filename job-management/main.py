@@ -3,6 +3,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from app.auth.auth import create_access_token, verify_password, get_password_hash, oauth2_scheme
 from pydantic import BaseModel
 from datetime import timedelta
+from fastapi.middleware.cors import CORSMiddleware
 
 # Import routers
 from app.routes.user import router as user_router
@@ -41,3 +42,11 @@ def get_jobs(token: str = Depends(oauth2_scheme)):
 @app.get("/")
 def home():
     return {"message": "Job Management API is running"}
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # or use ["*"] for all origins (not recommended for production)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

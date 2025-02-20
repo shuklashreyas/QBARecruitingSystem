@@ -21,21 +21,23 @@ def create_job(
     return new_job
 
 
-@router.get("", response_model=list[JobResponse])
+@router.get("/", response_model=list[JobResponse])
 def get_jobs(
     db: Session = Depends(get_db),
     title: Optional[str] = Query(None, min_length=3, max_length=100),
     company: Optional[str] = Query(None, min_length=2, max_length=100),
-    posted_date: Optional[str] = Query(None)
+    limit: int = Query(10, ge=1),
+    offset: int = Query(0, ge=0)
 ):
     query = db.query(Job)
+    
     if title:
         query = query.filter(Job.title.ilike(f"%{title}%"))
     if company:
         query = query.filter(Job.company.ilike(f"%{company}%"))
-    if posted_date:
-        query = query.filter(Job.created_at == posted_date)  # Make sure your Job model has created_at field
-    return query.all()
+    
+    jobs = query.offset(offset).limit(limit).all()
+    return jobs
 
 @router.get("/mine", response_model=list[JobResponse])  
 def get_my_jobs(db: Session = Depends(get_db), current_user=Depends(get_current_user)):
