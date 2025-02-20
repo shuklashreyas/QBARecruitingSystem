@@ -6,7 +6,7 @@ user_role_enum = sa.Enum('admin', 'recruiter', 'applicant', name='role')
 
 # Revision identifiers, used by Alembic.
 revision = 'a84805f4d8cc'
-down_revision = 'd988d52aa0cc'
+down_revision = None
 branch_labels = None
 depends_on = None
 

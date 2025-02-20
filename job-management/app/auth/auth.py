@@ -51,6 +51,14 @@ def authenticate_user(db: Session, username: str, password: str):
         return None
     return user
 
+def create_refresh_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
+    refresh_exp = expires_delta if expires_delta else timedelta(days=7)
+    to_encode = data.copy()
+    expire = datetime.utcnow() + refresh_exp
+    to_encode.update({"exp": expire, "type": "refresh"})
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+
+
 def get_current_user(db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)) -> User:
     """Retrieve the current user from the JWT token."""
     credentials_exception = HTTPException(

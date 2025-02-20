@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr
+from enum import Enum
 
 
 class UserBase(BaseModel):
@@ -16,8 +17,24 @@ class UserResponse(UserBase):
 class TokenData(BaseModel):
     username: str
 
+class UserRole(str, Enum):
+    admin = "admin"
+    recruiter = "recruiter"
+    applicant = "applicant"
+
 
 class UserCreate(BaseModel):
     username: str
     email: EmailStr
-    password: str 
+    password: str
+    role: UserRole 
+    
+    class Config:
+        schema_extra = {
+            "example": {
+                "username": "newuser",
+                "email": "newuser@example.com",
+                "password": "password123",
+                "role": "recruiter"
+            }
+        }
