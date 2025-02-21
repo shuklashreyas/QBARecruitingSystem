@@ -1,7 +1,8 @@
-# # QBA Recurting System
+# QBA Recurting System
 
-conda activate job-management
-/opt/homebrew/Caskroom/miniconda/base/envs/job-management/bin/python
+1. conda activate job-management
+2. uvicorn main:app --reload
+3. npm run dev
 
 This is a **FastAPI-based job management system** that allows users to register, authenticate, and manage job listings. It includes user authentication with JWT tokens and CRUD operations for job postings.
 
