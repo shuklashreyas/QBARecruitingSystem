@@ -1,6 +1,11 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
-from app.auth.auth import create_access_token, verify_password, get_password_hash, oauth2_scheme
+from app.auth.auth import (
+    create_access_token,
+    verify_password,
+    get_password_hash,
+    oauth2_scheme
+)
 from pydantic import BaseModel
 from datetime import timedelta
 from fastapi.middleware.cors import CORSMiddleware

@@ -1,4 +1,4 @@
-# QBA Recurting System
+# QBA Recruting System
 
 1. conda activate job-management
 2. uvicorn main:app --reload

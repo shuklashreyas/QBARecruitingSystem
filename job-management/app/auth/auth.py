@@ -8,7 +8,7 @@ from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
 from app.database.database import get_db
-from app.models.user import User 
+from app.models.user import User
 
 # Secret key (should be stored in environment variables)
 SECRET_KEY = os.getenv("SECRET_KEY", "your_default_secret_key")
@@ -21,20 +21,28 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # OAuth2 scheme
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/token")
 
+
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """Verify if a plain password matches a hashed password."""
     return pwd_context.verify(plain_password, hashed_password)
+
 
 def get_password_hash(password: str) -> str:
     """Hash a password."""
     return pwd_context.hash(password)
 
-def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
+
+def create_access_token(
+    data: dict, expires_delta: Optional[timedelta] = None
+) -> str:
     """Create a JWT access token."""
     to_encode = data.copy()
-    expire = datetime.utcnow() + (expires_delta if expires_delta else timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
+    expire = datetime.utcnow() + \
+        (expires_delta if expires_delta else timedelta(
+            minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+
 
 def decode_access_token(token: str) -> Optional[dict]:
     """Decode a JWT access token."""
@@ -42,6 +50,7 @@ def decode_access_token(token: str) -> Optional[dict]:
         return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
     except JWTError:
         return None
+
 
 def authenticate_user(db: Session, username: str, password: str):
     user = db.query(User).filter(User.username == username).first()
@@ -51,7 +60,12 @@ def authenticate_user(db: Session, username: str, password: str):
         return None
     return user
 
-def create_refresh_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
+
+def create_refresh_token(
+    data: dict,
+    expires_delta: Optional[timedelta] = None
+) -> str:
+    """Create a JWT refresh token (longer expiration, with type refresh)."""
     refresh_exp = expires_delta if expires_delta else timedelta(days=7)
     to_encode = data.copy()
     expire = datetime.utcnow() + refresh_exp
@@ -59,7 +73,10 @@ def create_refresh_token(data: dict, expires_delta: Optional[timedelta] = None) 
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 
-def get_current_user(db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)) -> User:
+def get_current_user(
+    db: Session = Depends(get_db),
+    token: str = Depends(oauth2_scheme)
+) -> User:
     """Retrieve the current user from the JWT token."""
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
