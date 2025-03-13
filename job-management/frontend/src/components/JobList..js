@@ -1,67 +1,48 @@
-// frontend/src/components/JobList.js
-import React, { useEffect, useState } from "react";
-import { fetchJobs } from "../apiService";
+import React, { useContext, useEffect } from "react";
+import { GlobalContext } from "../context/GlobalState";
+import api from "../apiService";
+import { Link } from "react-router-dom";
 
-function JobList() {
-  const [jobs, setJobs] = useState([]);
-  const [titleFilter, setTitleFilter] = useState("");
-  const [companyFilter, setCompanyFilter] = useState("");
+const JobListings = () => {
+  const { jobs, updateJobs } = useContext(GlobalContext);
 
-  useEffect(() => {
-    // On initial mount or whenever filters change
-    loadJobs();
-  }, []);
-
-  const loadJobs = async () => {
+  const fetchJobs = async () => {
     try {
-      const data = await fetchJobs({
-        title: titleFilter,
-        company: companyFilter,
-        limit: 5,
-        offset: 0,
-      });
-      setJobs(data);
+      const response = await api.get("/jobs?limit=5&offset=0");
+      if (Array.isArray(response.data)) {
+        updateJobs(response.data);
+      } else {
+        console.error("Expected an array, got:", response.data);
+      }
     } catch (error) {
       console.error("Error fetching jobs:", error);
     }
   };
 
-  const handleSearch = () => {
-    loadJobs();
-  };
+  useEffect(() => {
+    fetchJobs();
+  }, []);
 
   return (
     <div>
       <h1>Job Listings</h1>
-      <div>
-        <input
-          type="text"
-          placeholder="Title filter"
-          value={titleFilter}
-          onChange={(e) => setTitleFilter(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Company filter"
-          value={companyFilter}
-          onChange={(e) => setCompanyFilter(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
-
       {jobs.length > 0 ? (
         jobs.map((job) => (
-          <div key={job.id} style={{ border: "1px solid #ccc", margin: "10px" }}>
-            <h2>{job.title}</h2>
+          <div key={job.id}>
+            <h2>
+              <Link to={`/jobs/${job.id}`}>{job.title}</Link>
+            </h2>
             <p>{job.description}</p>
-            <strong>Company: {job.company}</strong>
+            <p>
+              <strong>Company:</strong> {job.company}
+            </p>
           </div>
         ))
       ) : (
-        <p>No jobs found.</p>
+        <p>No jobs available.</p>
       )}
     </div>
   );
-}
+};
 
-export default JobList;
+export default JobListings;

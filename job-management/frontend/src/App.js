@@ -1,4 +1,6 @@
+// src/App.js
 import React, { useEffect, useState } from "react";
+import "./App.css"; // Ensure this file is imported
 
 function App() {
   const [jobs, setJobs] = useState([]);
@@ -9,26 +11,18 @@ function App() {
 
   const fetchJobs = () => {
     const url = `http://127.0.0.1:8000/jobs?limit=${limit}&offset=${offset}&title=${titleFilter}&company=${companyFilter}`;
-    const token = localStorage.getItem("access_token"); // or however you store your token
-  
-    fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
-      },
-    })
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         if (Array.isArray(data)) {
           setJobs(data);
         } else {
           console.error("Expected an array but got:", data);
-          setJobs([]);
+          setJobs([]); // fallback to empty array
         }
       })
       .catch((error) => console.error("Error fetching jobs:", error));
   };
-  
 
   useEffect(() => {
     fetchJobs();
@@ -54,17 +48,21 @@ function App() {
       </div>
       {jobs.length > 0 ? (
         jobs.map((job) => (
-          <div key={job.id}>
+          <div key={job.id} className="job-listing">
             <h2>{job.title}</h2>
             <p>{job.description}</p>
-            <p><strong>Company:</strong> {job.company}</p>
+            <p>
+              <strong>Company:</strong> {job.company}
+            </p>
           </div>
         ))
       ) : (
         <p>No jobs available.</p>
       )}
       <div>
-        <button onClick={() => setOffset(offset - limit)} disabled={offset === 0}>Previous</button>
+        <button onClick={() => setOffset(Math.max(offset - limit, 0))} disabled={offset === 0}>
+          Previous
+        </button>
         <button onClick={() => setOffset(offset + limit)}>Next</button>
       </div>
     </div>
