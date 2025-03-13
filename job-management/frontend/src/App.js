@@ -9,7 +9,14 @@ function App() {
 
   const fetchJobs = () => {
     const url = `http://127.0.0.1:8000/jobs?limit=${limit}&offset=${offset}&title=${titleFilter}&company=${companyFilter}`;
-    fetch(url)
+    const token = localStorage.getItem("access_token"); // or however you store your token
+  
+    fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         if (Array.isArray(data)) {
@@ -21,6 +28,7 @@ function App() {
       })
       .catch((error) => console.error("Error fetching jobs:", error));
   };
+  
 
   useEffect(() => {
     fetchJobs();
