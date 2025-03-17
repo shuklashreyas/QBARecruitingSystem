@@ -7,11 +7,13 @@ class Job(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
+    in_person_mode = Column(String, nullable=True)
     description = Column(String, nullable=False)
     company = Column(String, nullable=False)
-    owner_id = Column(Integer, ForeignKey("users.id"))  # 🔹 Add this
+    compensation = Column(String, nullable=True)
+    owner_id = Column(Integer, ForeignKey("users.id"))
 
-    owner = relationship("User")  # 🔹 Link job to user
+    owner = relationship("User")
 
 # Add index for fast searching
 Index("idx_jobs_title", Job.title)

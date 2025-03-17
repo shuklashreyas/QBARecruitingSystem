@@ -1,43 +1,98 @@
-/* src/App.css */
-.job-listing {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 1rem;
-  margin: 1rem 0;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
+/* App.css (just an example to unify some basic styling) */
 
-.job-listing:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
-}
-
-/* Global font and spacing improvements */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Global resets or universal styles */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  box-sizing: border-box;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .job-listing {
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-  }
-  
-  h1 {
-    font-size: 1.5rem;
-  }
+/* Body style */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
 }
 
-@media (max-width: 480px) {
-  .job-listing {
-    padding: 0.5rem;
-  }
-
-  h1 {
-    font-size: 1.25rem;
-  }
+/* Simple container to center content */
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto; /* top/bottom = 40px, auto center horizontally */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 20px;
 }
+
+/* Headings, spacing */
+h1, h2 {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Buttons, inputs */
+button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Simple link style */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.job-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.job-table th,
+.job-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.job-table th {
+  background-color: #eee;
+}
+
