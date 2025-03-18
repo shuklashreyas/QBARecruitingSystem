@@ -27,9 +27,9 @@ def get_jobs(
     db: Session = Depends(get_db),
     limit: int = Query(10, ge=1),
     offset: int = Query(0, ge=0),
-    title: Optional[str] = Query(None, min_length=3),
-    company: Optional[str] = Query(None, min_length=2),
-    # You can add posted_date filter if your Job model has a created_at field
+    title: Optional[str] = Query(None, min_length=0),  # Allow empty string
+    company: Optional[str] = Query(None, min_length=0),  # Allow empty string
+    # You can add a posted_date filter if your Job model has a created_at field
 ):
     query = db.query(Job)
     if title:

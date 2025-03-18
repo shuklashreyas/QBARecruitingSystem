@@ -1,3 +1,4 @@
+// src/components/JobTable.js
 import React from 'react';
 
 function JobTable({ jobs }) {
@@ -10,6 +11,7 @@ function JobTable({ jobs }) {
           <th>In Person/Hybrid</th>
           <th>Compensation</th>
           <th>Job Description</th>
+          <th>Location</th> {/* New column header */}
         </tr>
       </thead>
       <tbody>
@@ -18,14 +20,15 @@ function JobTable({ jobs }) {
             <tr key={job.id}>
               <td>{job.title}</td>
               <td>{job.id}</td>
-              <td>{job.inPersonOrHybrid || "N/A"}</td>
+              <td>{job.in_person_mode || "N/A"}</td>
               <td>{job.compensation || "N/A"}</td>
               <td>{job.description}</td>
+              <td>{job.location || "N/A"}</td> {/* New table cell for location */}
             </tr>
           ))
         ) : (
           <tr>
-            <td colSpan="5">No jobs available.</td>
+            <td colSpan="6">No jobs available.</td> {/* Update colSpan to 6 */}
           </tr>
         )}
       </tbody>

@@ -10,7 +10,6 @@ function JobListingsPage() {
   const [limit] = useState(5);
   const [offset, setOffset] = useState(0);
 
-  // Fetch jobs from your FastAPI endpoint
   const fetchJobs = async () => {
     try {
       const url = `http://127.0.0.1:8000/jobs?limit=${limit}&offset=${offset}&title=${titleFilter}&company=${companyFilter}`;
@@ -30,7 +29,6 @@ function JobListingsPage() {
     }
   };
 
-  // Re-fetch jobs whenever filters or pagination change
   useEffect(() => {
     fetchJobs();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -39,7 +37,7 @@ function JobListingsPage() {
   return (
     <div className="container">
       <h1>Job Listings</h1>
-      {/* Filtering Inputs */}
+      {/* Filtering inputs */}
       <div style={{ marginBottom: "1rem" }}>
         <input
           type="text"
@@ -61,11 +59,11 @@ function JobListingsPage() {
         />
         <button onClick={() => setOffset(0)}>Search</button>
       </div>
-
-      {/* Job Table Component */}
+      
+      {/* Job table */}
       <JobTable jobs={jobs} />
 
-      {/* Pagination Controls */}
+      {/* Pagination controls */}
       <div style={{ marginTop: "1rem" }}>
         <button
           onClick={() => setOffset(Math.max(offset - limit, 0))}

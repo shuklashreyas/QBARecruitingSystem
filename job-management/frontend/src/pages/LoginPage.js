@@ -1,4 +1,3 @@
-// src/pages/LoginPage.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./../App.css"; // Make sure to import your CSS
@@ -12,7 +11,6 @@ function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // Example login flow (replace with your actual logic)
     try {
       const response = await fetch("http://127.0.0.1:8000/auth/token", {
         method: "POST",
@@ -31,10 +29,11 @@ function LoginPage() {
 
       const data = await response.json();
       console.log("Token received:", data.access_token);
-      // Ideally, store token in localStorage or a global state
-      // localStorage.setItem("token", data.access_token);
 
-      // Navigate to jobs page after login
+      // Store token in localStorage for later API calls
+      localStorage.setItem("accessToken", data.access_token);
+
+      // Navigate to jobs page after successful login
       navigate("/jobs");
     } catch (error) {
       console.error("Error during login:", error);
