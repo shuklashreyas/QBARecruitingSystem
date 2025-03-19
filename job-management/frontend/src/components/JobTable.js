@@ -1,5 +1,5 @@
-// src/components/JobTable.js
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function JobTable({ jobs }) {
   return (
@@ -11,24 +11,26 @@ function JobTable({ jobs }) {
           <th>In Person/Hybrid</th>
           <th>Compensation</th>
           <th>Job Description</th>
-          <th>Location</th> {/* New column header */}
+          <th>Location</th>
         </tr>
       </thead>
       <tbody>
         {jobs.length > 0 ? (
           jobs.map((job) => (
             <tr key={job.id}>
-              <td>{job.title}</td>
+              <td>
+                <Link to={`/jobs/${job.id}`}>{job.title}</Link>
+              </td>
               <td>{job.id}</td>
               <td>{job.in_person_mode || "N/A"}</td>
               <td>{job.compensation || "N/A"}</td>
               <td>{job.description}</td>
-              <td>{job.location || "N/A"}</td> {/* New table cell for location */}
+              <td>{job.location || "N/A"}</td>
             </tr>
           ))
         ) : (
           <tr>
-            <td colSpan="6">No jobs available.</td> {/* Update colSpan to 6 */}
+            <td colSpan="6">No jobs available.</td>
           </tr>
         )}
       </tbody>

@@ -1,18 +1,18 @@
 // src/pages/JobListingsPage.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./../App.css";
 import JobTable from "../components/JobTable";
 
 function JobListingsPage() {
   const [jobs, setJobs] = useState([]);
   const [titleFilter, setTitleFilter] = useState("");
-  const [companyFilter, setCompanyFilter] = useState("");
   const [limit] = useState(5);
   const [offset, setOffset] = useState(0);
 
-  const fetchJobs = async () => {
+  // Wrap fetchJobs in useCallback to stabilize its reference
+  const fetchJobs = useCallback(async () => {
     try {
-      const url = `http://127.0.0.1:8000/jobs?limit=${limit}&offset=${offset}&title=${titleFilter}&company=${companyFilter}`;
+      const url = `http://127.0.0.1:8000/jobs?limit=${limit}&offset=${offset}&title=${titleFilter}`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Failed to fetch jobs");
@@ -27,17 +27,17 @@ function JobListingsPage() {
     } catch (error) {
       console.error("Error fetching jobs:", error);
     }
-  };
+  }, [titleFilter, offset, limit]);
 
   useEffect(() => {
     fetchJobs();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [titleFilter, companyFilter, offset]);
+  }, [fetchJobs]);
 
   return (
     <div className="container">
       <h1>Job Listings</h1>
-      {/* Filtering inputs */}
+
+      {/* Filtering Inputs */}
       <div style={{ marginBottom: "1rem" }}>
         <input
           type="text"
@@ -48,22 +48,13 @@ function JobListingsPage() {
             setTitleFilter(e.target.value);
           }}
         />
-        <input
-          type="text"
-          placeholder="Filter by company"
-          value={companyFilter}
-          onChange={(e) => {
-            setOffset(0);
-            setCompanyFilter(e.target.value);
-          }}
-        />
         <button onClick={() => setOffset(0)}>Search</button>
       </div>
       
-      {/* Job table */}
+      {/* Job Table */}
       <JobTable jobs={jobs} />
 
-      {/* Pagination controls */}
+      {/* Pagination Controls */}
       <div style={{ marginTop: "1rem" }}>
         <button
           onClick={() => setOffset(Math.max(offset - limit, 0))}
