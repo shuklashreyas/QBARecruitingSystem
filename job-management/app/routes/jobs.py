@@ -61,8 +61,14 @@ def update_job(
         raise HTTPException(
             status_code=403, detail="Not authorized to update this job")
 
+    # Update detailed_description separately if provided
+    if job_update.detailed_description is not None:
+        job.detailed_description = job_update.detailed_description
+
+    # Update the other fields using the dictionary update approach
     for key, value in job_update.dict(exclude_unset=True).items():
-        setattr(job, key, value)
+        if key != "detailed_description":  # Skip if already handled
+            setattr(job, key, value)
 
     db.commit()
     db.refresh(job)
@@ -85,3 +91,11 @@ def delete_job(
     db.delete(job)
     db.commit()
     return {"message": "Job deleted successfully"}
+
+
+@router.get("/{job_id}", response_model=JobResponse)
+def get_job(job_id: int, db: Session = Depends(get_db)):
+    job = db.query(Job).filter(Job.id == job_id).first()
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    return job

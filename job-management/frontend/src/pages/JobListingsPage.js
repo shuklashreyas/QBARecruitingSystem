@@ -1,5 +1,5 @@
-// src/pages/JobListingsPage.js
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./../App.css";
 import JobTable from "../components/JobTable";
 
@@ -8,9 +8,12 @@ function JobListingsPage() {
   const [titleFilter, setTitleFilter] = useState("");
   const [limit] = useState(5);
   const [offset, setOffset] = useState(0);
+  
 
-  // Wrap fetchJobs in useCallback to stabilize its reference
-  const fetchJobs = useCallback(async () => {
+  // Dummy currentUser object for demonstration; replace with your context hook
+  const currentUser = { role: "recruiter" };
+
+  const fetchJobs = async () => {
     try {
       const url = `http://127.0.0.1:8000/jobs?limit=${limit}&offset=${offset}&title=${titleFilter}`;
       const response = await fetch(url);
@@ -27,15 +30,25 @@ function JobListingsPage() {
     } catch (error) {
       console.error("Error fetching jobs:", error);
     }
-  }, [titleFilter, offset, limit]);
+  };
 
   useEffect(() => {
     fetchJobs();
-  }, [fetchJobs]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [titleFilter, offset]);
 
   return (
     <div className="container">
       <h1>Job Listings</h1>
+
+      {/* If user is a recruiter, show the create button */}
+      {currentUser && currentUser.role === "recruiter" && (
+        <div className="create-job-button" style={{ textAlign: "right", marginBottom: "1rem" }}>
+          <Link to="/jobs/create">
+            <button>Create New Job</button>
+          </Link>
+        </div>
+      )}
 
       {/* Filtering Inputs */}
       <div style={{ marginBottom: "1rem" }}>
@@ -50,8 +63,8 @@ function JobListingsPage() {
         />
         <button onClick={() => setOffset(0)}>Search</button>
       </div>
-      
-      {/* Job Table */}
+
+      {/* Table of Jobs */}
       <JobTable jobs={jobs} />
 
       {/* Pagination Controls */}

@@ -1,0 +1,62 @@
+/* CreateJobPage.css */
+.create-job-page {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-job-page h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .create-job-page form > div {
+    margin-bottom: 1rem;
+  }
+  
+  .create-job-page label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .create-job-page input[type="text"],
+  .create-job-page input[type="file"],
+  .create-job-page textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .create-job-page textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  .create-job-page button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .create-job-page button:hover {
+    background-color: #0056b3;
+  }
+  
