@@ -9,10 +9,14 @@ def get_user_by_username(db: Session, username: str):
 
 
 def create_user(db: Session, user: UserCreate):
-    hashed_password = get_password_hash(user.password)
-    db_user = User(username=user.username, email=user.email, hashed_password=hashed_password)
+    # Use the role provided in the user input, don't override it with a default unless necessary
+    db_user = User(
+        username=user.username,
+        email=user.email,
+        hashed_password=get_password_hash(user.password),
+        role=user.role  # Make sure this line exists
+    )
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
     return db_user
-

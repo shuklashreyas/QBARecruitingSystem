@@ -27,6 +27,7 @@ function CreateJobPage() {
 
     try {
       const token = localStorage.getItem("token");
+      console.log("Token used for create job:", localStorage.getItem("token"));
       const response = await fetch("http://127.0.0.1:8000/jobs", {
         method: "POST",
         headers: {

@@ -31,7 +31,11 @@ function LoginPage() {
       console.log("Token received:", data.access_token);
 
       // Store token in localStorage for later API calls
-      localStorage.setItem("accessToken", data.access_token);
+      localStorage.setItem("token", data.access_token);
+      console.log("Token stored:", localStorage.getItem("token"));
+
+      localStorage.setItem("userRole", data.role);
+      console.log("User role stored:", localStorage.getItem("userRole"));
 
       // Navigate to jobs page after successful login
       navigate("/jobs");

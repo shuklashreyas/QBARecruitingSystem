@@ -1,0 +1,41 @@
+/* JobTable.css */
+
+.job-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto; /* optional, to center the table */
+    font-family: Arial, sans-serif;
+  }
+  
+  .job-table thead {
+    background-color: #f9f9f9;
+  }
+  
+  .job-table th,
+  .job-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Optional: highlight row on hover */
+  .job-table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Style for the edit button */
+  .edit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  

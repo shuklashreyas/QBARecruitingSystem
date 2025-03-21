@@ -57,18 +57,13 @@ def update_job(
     if not job:
         raise HTTPException(status_code=404, detail="Job not found")
 
-    if job.owner_id != current_user.id:
+    # Allow recruiters to edit any job; otherwise, ensure they own the job.
+    if current_user.role != "recruiter" and job.owner_id != current_user.id:
         raise HTTPException(
             status_code=403, detail="Not authorized to update this job")
 
-    # Update detailed_description separately if provided
-    if job_update.detailed_description is not None:
-        job.detailed_description = job_update.detailed_description
-
-    # Update the other fields using the dictionary update approach
     for key, value in job_update.dict(exclude_unset=True).items():
-        if key != "detailed_description":  # Skip if already handled
-            setattr(job, key, value)
+        setattr(job, key, value)
 
     db.commit()
     db.refresh(job)

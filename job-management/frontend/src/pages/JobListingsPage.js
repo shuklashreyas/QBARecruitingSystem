@@ -1,3 +1,4 @@
+// src/pages/JobListingsPage.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./../App.css";
@@ -8,10 +9,9 @@ function JobListingsPage() {
   const [titleFilter, setTitleFilter] = useState("");
   const [limit] = useState(5);
   const [offset, setOffset] = useState(0);
-  
 
-  // Dummy currentUser object for demonstration; replace with your context hook
-  const currentUser = { role: "recruiter" };
+  // Dummy currentUser; replace with your actual context or auth hook
+  const currentUser = { role: localStorage.getItem("userRole") || "applicant" };
 
   const fetchJobs = async () => {
     try {
@@ -41,7 +41,7 @@ function JobListingsPage() {
     <div className="container">
       <h1>Job Listings</h1>
 
-      {/* If user is a recruiter, show the create button */}
+      {/* If recruiter, show the create job button */}
       {currentUser && currentUser.role === "recruiter" && (
         <div className="create-job-button" style={{ textAlign: "right", marginBottom: "1rem" }}>
           <Link to="/jobs/create">
@@ -64,8 +64,8 @@ function JobListingsPage() {
         <button onClick={() => setOffset(0)}>Search</button>
       </div>
 
-      {/* Table of Jobs */}
-      <JobTable jobs={jobs} />
+      {/* Job Table */}
+      <JobTable jobs={jobs} isRecruiter={currentUser && currentUser.role === "recruiter"} />
 
       {/* Pagination Controls */}
       <div style={{ marginTop: "1rem" }}>
