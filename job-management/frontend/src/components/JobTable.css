@@ -1,0 +1,55 @@
+.job-table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Ensures the entire table has a white background */
+    background-color: #fff; 
+    font-family: sans-serif;
+  }
+  
+  /* Table header styling */
+  .job-table thead th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  /* Table body rows */
+  .job-table tbody tr {
+    /* Keep rows white if you want a uniform look */
+    background-color: #fff; 
+  }
+  
+  /* Cells in the table body */
+  .job-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* "Edit" column heading can be centered or left, as you prefer */
+  .job-table th.edit-col {
+    text-align: center;
+    width: 80px;
+  }
+  
+  /* Cells in the "Edit" column */
+  .job-table td.edit-col {
+    text-align: center; 
+  }
+  
+  /* Edit button styling */
+  .edit-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    outline: none;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  

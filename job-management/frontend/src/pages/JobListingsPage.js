@@ -7,26 +7,21 @@ import JobTable from "../components/JobTable";
 function JobListingsPage() {
   const [jobs, setJobs] = useState([]);
   const [titleFilter, setTitleFilter] = useState("");
-  const [limit] = useState(5);
+  const [limit] = useState(10);
   const [offset, setOffset] = useState(0);
 
-  // Dummy currentUser; replace with your actual context or auth hook
-  const currentUser = { role: localStorage.getItem("userRole") || "applicant" };
+  // Example currentUser for demonstration; assume it's stored in localStorage after login
+  const currentUser = localStorage.getItem("user") 
+    ? JSON.parse(localStorage.getItem("user")) 
+    : null;
 
   const fetchJobs = async () => {
     try {
       const url = `http://127.0.0.1:8000/jobs?limit=${limit}&offset=${offset}&title=${titleFilter}`;
       const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error("Failed to fetch jobs");
-      }
+      if (!response.ok) throw new Error("Failed to fetch jobs");
       const data = await response.json();
-      if (Array.isArray(data)) {
-        setJobs(data);
-      } else {
-        console.error("Expected an array but got:", data);
-        setJobs([]);
-      }
+      setJobs(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Error fetching jobs:", error);
     }
@@ -37,21 +32,21 @@ function JobListingsPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [titleFilter, offset]);
 
+  console.log("User role on Jobs listing page is:", currentUser ? currentUser.role : "No user role found");
+  
   return (
-    <div className="container">
-      <h1>Job Listings</h1>
+    <div className="job-listings-container">
+      <h1 className="page-title">QBA Job Listings</h1>
 
-      {/* If recruiter, show the create job button */}
       {currentUser && currentUser.role === "recruiter" && (
-        <div className="create-job-button" style={{ textAlign: "right", marginBottom: "1rem" }}>
+        <div className="create-job-button" style={{ marginBottom: "1.5rem", textAlign: "right" }}>
           <Link to="/jobs/create">
             <button>Create New Job</button>
           </Link>
         </div>
       )}
 
-      {/* Filtering Inputs */}
-      <div style={{ marginBottom: "1rem" }}>
+      <div className="filter-section" style={{ marginBottom: "1.5rem" }}>
         <input
           type="text"
           placeholder="Filter by title"
@@ -64,11 +59,9 @@ function JobListingsPage() {
         <button onClick={() => setOffset(0)}>Search</button>
       </div>
 
-      {/* Job Table */}
-      <JobTable jobs={jobs} isRecruiter={currentUser && currentUser.role === "recruiter"} />
+      <JobTable jobs={jobs} currentUser={currentUser} />
 
-      {/* Pagination Controls */}
-      <div style={{ marginTop: "1rem" }}>
+      <div className="pagination-controls" style={{ marginTop: "1.5rem" }}>
         <button
           onClick={() => setOffset(Math.max(offset - limit, 0))}
           disabled={offset === 0}

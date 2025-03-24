@@ -5,6 +5,7 @@ from app.database.database import get_db
 from app.auth.auth import get_current_user
 from app.schemas.job import JobCreate, JobUpdate, JobResponse
 from app.models.job import Job
+from datetime import datetime
 
 router = APIRouter()
 
@@ -16,6 +17,11 @@ def create_job(
     current_user=Depends(get_current_user)
 ):
     new_job = Job(**job.dict(), owner_id=current_user.id)
+
+    # Fallback to today's date if job_posted isn't explicitly given
+    if not new_job.job_posted:
+        new_job.job_posted = datetime.utcnow().strftime("%Y-%m-%d")
+
     db.add(new_job)
     db.commit()
     db.refresh(new_job)

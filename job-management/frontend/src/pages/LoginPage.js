@@ -37,6 +37,15 @@ function LoginPage() {
       localStorage.setItem("userRole", data.role);
       console.log("User role stored:", localStorage.getItem("userRole"));
 
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          username: data.username || username,
+          role: data.role,
+          // add any other user info you need
+        })
+      );
+
       // Navigate to jobs page after successful login
       navigate("/jobs");
     } catch (error) {

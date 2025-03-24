@@ -1,4 +1,12 @@
-/* App.css (just an example to unify some basic styling) */
+/* App.css (Example unified styling) */
+
+/* Body reset and basic background/color/font */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8; /* Light gray background */
+  font-family: sans-serif;   /* Consistent font usage */
+}
 
 /* Global resets or universal styles */
 * {
@@ -7,25 +15,18 @@
   box-sizing: border-box;
 }
 
-/* Body style */
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  color: #333;
-}
-
-/* Simple container to center content */
+/* A container class to center content and provide a “card” look */
 .container {
   width: 90%;
   max-width: 600px;
-  margin: 40px auto; /* top/bottom = 40px, auto center horizontally */
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  padding: 20px;
+  margin: 40px auto;          /* Top/bottom spacing, center horizontally */
+  background: #fff;           /* White background for a “card” effect */
+  border-radius: 8px;         /* Slightly rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;              /* Inner spacing */
 }
 
-/* Headings, spacing */
+/* Headings and spacing */
 h1, h2 {
   margin-bottom: 1rem;
 }
@@ -36,7 +37,20 @@ h1 {
   margin-bottom: 2rem;
 }
 
-/* Buttons, inputs */
+/* Additional styles for the Job Listings page */
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.job-listings-container {
+  padding: 20px;
+  background-color: #f8f8f8; /* Matches the global background */
+}
+
+/* Buttons */
 button {
   background: #007bff;
   color: #fff;
@@ -45,6 +59,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
+  transition: background 0.2s ease;
 }
 
 button:hover {
@@ -61,7 +76,7 @@ input[type="password"] {
   border-radius: 4px;
 }
 
-/* Simple link style */
+/* Simple link styling */
 a {
   color: #007bff;
   text-decoration: none;
@@ -80,6 +95,7 @@ a:hover {
   margin-bottom: 1rem;
 }
 
+/* Table styling for job listings */
 .job-table {
   width: 100%;
   border-collapse: collapse;
@@ -95,4 +111,3 @@ a:hover {
 .job-table th {
   background-color: #eee;
 }
-

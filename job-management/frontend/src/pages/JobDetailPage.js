@@ -1,18 +1,19 @@
 // src/pages/JobDetailPage.js
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./JobDetailPage.css"; // Make sure you have some basic styling here
+import ReactMarkdown from "react-markdown";
+import "github-markdown-css"; // Make sure this is installed: npm install github-markdown-css
+import "./JobDetailPage.css";
 
 function JobDetailPage() {
   const { jobId } = useParams();
   const [job, setJob] = useState(null);
 
   useEffect(() => {
-    // Fetch the job details by jobId from your backend
     fetch(`http://127.0.0.1:8000/jobs/${jobId}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log("Fetched job data:", data); // Debug: log the job data
+        console.log("Fetched job data:", data);
         setJob(data);
       })
       .catch((error) => console.error("Error fetching job details:", error));
@@ -27,12 +28,10 @@ function JobDetailPage() {
         <div className="job-description">
           <h2>Job Description</h2>
           {job.detailed_description ? (
-            // Renders HTML from 'detailed_description'
-            <div
-              dangerouslySetInnerHTML={{ __html: job.detailed_description }}
-            />
+            <div className="markdown-body">
+              <ReactMarkdown>{job.detailed_description}</ReactMarkdown>
+            </div>
           ) : (
-            // Fallback if there's no 'detailed_description'
             <p>{job.description}</p>
           )}
         </div>

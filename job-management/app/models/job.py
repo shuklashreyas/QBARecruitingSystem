@@ -11,9 +11,10 @@ class Job(Base):
     in_person_mode = Column(String, nullable=True)        # In Person/Hybrid
     description = Column(String, nullable=False)          # Job Description
     detailed_description = Column(String, nullable=True)
-    company = Column(String, nullable=False)              # Company Name
     compensation = Column(String, nullable=True)          # Compensation
     location = Column(String, nullable=True)              # Location
+    job_posted = Column(String, nullable=True)          # Job Posted Date
+    job_expiration = Column(String, nullable=True)
     owner_id = Column(Integer, ForeignKey("users.id"))      # Owner (Recruiter)
 
     owner = relationship("User")
