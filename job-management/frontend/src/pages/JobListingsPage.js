@@ -10,7 +10,6 @@ function JobListingsPage() {
   const [limit] = useState(10);
   const [offset, setOffset] = useState(0);
 
-  // Example currentUser for demonstration; assume it's stored in localStorage after login
   const currentUser = localStorage.getItem("user") 
     ? JSON.parse(localStorage.getItem("user")) 
     : null;

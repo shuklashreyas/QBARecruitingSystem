@@ -1,14 +1,22 @@
+from app.models.user import User
+from app.database.database import get_db
+from sqlalchemy.orm import Session
+from fastapi.security import OAuth2PasswordBearer
 import os
 from datetime import datetime, timedelta
 from typing import Optional
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer
-from sqlalchemy.orm import Session
 
-from app.database.database import get_db
-from app.models.user import User
+
+# Define credentials_exception
+credentials_exception = HTTPException(
+    status_code=status.HTTP_401_UNAUTHORIZED,
+    detail="Could not validate credentials",
+    headers={"WWW-Authenticate": "Bearer"},
+)
+
 
 # Secret key (should be stored in environment variables)
 SECRET_KEY = os.getenv("SECRET_KEY", "your_default_secret_key")
@@ -32,23 +40,28 @@ def get_password_hash(password: str) -> str:
     return pwd_context.hash(password)
 
 
-def create_access_token(
-    data: dict, expires_delta: Optional[timedelta] = None
-) -> str:
-    """Create a JWT access token."""
+def create_access_token(data: dict, expires_delta: timedelta = None):
     to_encode = data.copy()
-    expire = datetime.utcnow() + \
-        (expires_delta if expires_delta else timedelta(
-            minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
+    to_encode.update({"type": "access"})  # <-- ADD THIS LINE
+    if expires_delta:
+        expire = datetime.utcnow() + expires_delta
+    else:
+        expire = datetime.utcnow() + timedelta(minutes=15)
     to_encode.update({"exp": expire})
-    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    return encoded_jwt
 
 
 def decode_access_token(token: str) -> Optional[dict]:
-    """Decode a JWT access token."""
     try:
-        return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-    except JWTError:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        print("🔍 Payload contents:", payload)
+        if payload.get("type") != "access":
+            print("❌ Token type is not 'access'")
+            return None
+        return payload
+    except JWTError as e:
+        print("❌ JWT Decode Error:", e)
         return None
 
 
@@ -74,26 +87,39 @@ def create_refresh_token(
 
 
 def get_current_user(
-    db: Session = Depends(get_db),
-    token: str = Depends(oauth2_scheme)
+    token: str = Depends(oauth2_scheme),
+    db: Session = Depends(get_db)
 ) -> User:
-    """Retrieve the current user from the JWT token."""
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Invalid authentication credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
+    try:
+        print("📥 Raw token received:", token)
 
-    payload = decode_access_token(token)
-    if not payload:
+        payload = decode_access_token(token)
+        print("✅ Token successfully decoded:", payload)
+
+        if payload is None:
+            print("❌ Token payload is None (invalid token)")
+            raise credentials_exception
+
+        if "sub" not in payload:
+            print("❌ 'sub' missing in token payload")
+            raise credentials_exception
+
+        username = payload["sub"]
+        print("🔍 Looking up user in DB with username:", username)
+
+        # Add debugging here
+        all_users = db.query(User).all()
+        print("🧪 Users in DB:", [(u.id, u.username, u.role)
+              for u in all_users])
+
+        user = db.query(User).filter(User.username == username).first()
+
+        if user is None:
+            print("❌ No user found for username:", username)
+            raise credentials_exception
+
+        print("✅ User found in DB:", user.username, "| role:", user.role)
+        return user
+    except Exception as e:
+        print("🔥 Unexpected error in get_current_user:", repr(e))
         raise credentials_exception
-
-    username: str = payload.get("sub")
-    if not username:
-        raise credentials_exception
-
-    user = db.query(User).filter(User.username == username).first()
-    if user is None:
-        raise credentials_exception
-
-    return user

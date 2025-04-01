@@ -7,9 +7,10 @@ import JobDetailPage from './pages/JobDetailPage';
 import CreateJobPage from './pages/CreateJobPage';
 import EditJobPage from './pages/EditJobPage';
 
+
 function App() {
   // Assume you have a way to get the current user's role, e.g., from localStorage
-  const currentUserRole = localStorage.getItem("userRole") || "applicant";
+  const currentUserRole = JSON.parse(localStorage.getItem("user"))?.role || "applicant";
 
   return (
     <Router>

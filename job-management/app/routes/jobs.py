@@ -1,11 +1,13 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Query
+# File: app/routes/jobs.py
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
-from typing import Optional, List
+from typing import Optional
 from app.database.database import get_db
 from app.auth.auth import get_current_user
 from app.schemas.job import JobCreate, JobUpdate, JobResponse
 from app.models.job import Job
 from datetime import datetime
+
 
 router = APIRouter()
 
@@ -47,7 +49,10 @@ def get_jobs(
 
 
 @router.get("/mine", response_model=list[JobResponse])
-def get_my_jobs(db: Session = Depends(get_db), current_user=Depends(get_current_user)):
+def get_my_jobs(
+    db: Session = Depends(get_db),
+    current_user=Depends(get_current_user)
+):
     return db.query(Job).filter(Job.owner_id == current_user.id).all()
 
 
@@ -87,7 +92,9 @@ def delete_job(
 
     if not job:
         raise HTTPException(
-            status_code=404, detail="Job not found or not authorized to delete")
+            status_code=404,
+            detail="Job not found or not authorized to delete"
+        )
 
     db.delete(job)
     db.commit()

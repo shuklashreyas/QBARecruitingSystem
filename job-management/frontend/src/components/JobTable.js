@@ -37,7 +37,9 @@ function JobTable({ jobs, currentUser }) {
           jobs.map((job) => (
             <tr key={job.id}>
               <td>
-                <Link to={`/jobs/${job.id}`}>{job.title}</Link>
+                <Link to={currentUser?.role === 'recruiter' ? `/recruiter/jobs/${job.id}` : `/jobs/${job.id}`}>
+  {job.title}
+</Link>
               </td>
               <td>{job.id}</td>
               <td>{job.in_person_mode || "N/A"}</td>

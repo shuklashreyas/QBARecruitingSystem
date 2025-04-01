@@ -1,10 +1,10 @@
-from pydantic import BaseModel
 from typing import Optional
+from pydantic import BaseModel
 
 
 class JobBase(BaseModel):
     title: str
-    description: str  # Short job description for listings
+    description: str
     detailed_description: Optional[str] = None
     in_person_mode: Optional[str] = None
     compensation: Optional[str] = None
@@ -30,7 +30,6 @@ class JobUpdate(BaseModel):
 
 class JobResponse(JobBase):
     id: int
-    owner_id: Optional[int] = None
 
     class Config:
         from_attributes = True
