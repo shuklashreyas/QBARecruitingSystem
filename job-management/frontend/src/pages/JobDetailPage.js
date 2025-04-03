@@ -14,42 +14,33 @@ function JobDetailPage() {
     not_reviewed: [],
   });
 
-  const currentUser = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))
-    : null;
-
-  const isRecruiter = currentUser?.role === "recruiter";
+  const currentUser = JSON.parse(localStorage.getItem("user") || "null");
 
   const fetchJob = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
-      const endpoint = isRecruiter
-        ? `http://localhost:8000/recruiter/jobs/${jobId}`
-        : `http://localhost:8000/jobs/${jobId}`;
-
-      const response = await fetch(endpoint, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      const response = await fetch(`http://127.0.0.1:8000/jobs/${jobId}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
 
-      if (!response.ok) throw new Error("Failed to fetch job");
-      const data = await response.json();
+      if (!response.ok) {
+        throw new Error("Failed to fetch job");
+      }
 
-      if (isRecruiter) {
-        setJob(data.job);
-        setApplications({
-          accepted: data.accepted,
-          rejected: data.rejected,
-          not_reviewed: data.not_reviewed,
+      const data = await response.json();
+      setJob(data);
+
+      if (currentUser?.role === "recruiter") {
+        setApplications(data.applications || {
+          accepted: [],
+          rejected: [],
+          not_reviewed: [],
         });
-      } else {
-        setJob(data);
       }
     } catch (error) {
-      console.error("Error fetching job:", error);
+      console.error("Error fetching job details:", error);
     }
-  }, [jobId, isRecruiter]);
+  }, [jobId]); // currentUser removed to avoid unnecessary rerenders
 
   useEffect(() => {
     fetchJob();
@@ -58,8 +49,8 @@ function JobDetailPage() {
   const handleUpdateStatus = async (applicationId, newStatus) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(
-        `http://localhost:8000/applications/${applicationId}/status`,
+      await fetch(
+        `http://127.0.0.1:8000/recruiter/applications/${applicationId}/status`,
         {
           method: "PUT",
           headers: {
@@ -69,22 +60,49 @@ function JobDetailPage() {
           body: JSON.stringify({ status: newStatus }),
         }
       );
-
-      if (!response.ok) throw new Error("Failed to update status");
       fetchJob();
     } catch (err) {
-      console.error("Update status error:", err);
+      console.error("Error updating application status:", err);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const responses = Object.fromEntries(formData.entries());
+
+    try {
+      const token = localStorage.getItem("token");
+      const res = await fetch("http://127.0.0.1:8000/applications", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ job_id: jobId, responses }),
+      });
+
+      if (!res.ok) {
+        const errMsg = await res.text();
+        throw new Error(errMsg);
+      }
+
+      await fetchJob();
+      alert("Application submitted successfully");
+    } catch (err) {
+      console.error("Error submitting application:", err);
+      alert("Failed to submit application.");
     }
   };
 
   if (!job) return <div>Loading...</div>;
 
   return (
-    <div className="job-detail-page" style={{ display: "flex" }}>
-      {/* LEFT: Job Details */}
-      <div style={{ flex: 1, padding: "1rem" }}>
-        <h1>{job.title}</h1>
+    <div className="job-detail-page">
+      <h1>{job.title}</h1>
+      <div className="job-detail-container">
         <div className="job-description">
+          <h2>Job Description</h2>
           {job.detailed_description ? (
             <div className="markdown-body">
               <ReactMarkdown>{job.detailed_description}</ReactMarkdown>
@@ -93,62 +111,45 @@ function JobDetailPage() {
             <p>{job.description}</p>
           )}
         </div>
+
+        {currentUser?.role === "recruiter" ? (
+          <div className="recruiter-applications-panel">
+            {["not_reviewed", "accepted", "rejected"].map((status) => (
+              <div key={status} className="application-column">
+                <h3>{status.replace("_", " ").toUpperCase()}</h3>
+                {applications[status]?.length ? (
+                  applications[status].map((app) => (
+                    <div key={app.id} className="application-card">
+                      <p>User ID: {app.user_id}</p>
+                      {status === "not_reviewed" && (
+                        <>
+                          <button onClick={() => handleUpdateStatus(app.id, "accepted")}>Accept</button>
+                          <button onClick={() => handleUpdateStatus(app.id, "rejected")}>Reject</button>
+                        </>
+                      )}
+                    </div>
+                  ))
+                ) : (
+                  <p>No applications</p>
+                )}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="job-application-form">
+            <h2>Apply for this job</h2>
+            <form onSubmit={handleSubmit}>
+              <fieldset>
+                <legend>Personal Details</legend>
+                <label>Name: <input type="text" name="name" required /></label>
+                <label>Age: <input type="number" name="age" required /></label>
+                <label>Current Address: <input type="text" name="address" required /></label>
+              </fieldset>
+              <button type="submit">Submit Application</button>
+            </form>
+          </div>
+        )}
       </div>
-
-      {/* RIGHT: Recruiter-only Application View */}
-      {isRecruiter && (
-        <div style={{ flex: 2, display: "flex", gap: "1rem", padding: "1rem" }}>
-          {["not_reviewed", "accepted", "rejected"].map((status) => (
-            <div
-              key={status}
-              style={{ flex: 1, border: "1px solid #ccc", padding: "0.5rem" }}
-            >
-              <h3>{status.replace("_", " ").toUpperCase()}</h3>
-              {applications[status]?.map((app) => (
-                <div key={app.id} style={{ marginBottom: "0.5rem" }}>
-                  <p>User ID: {app.user_id}</p>
-                  <button onClick={() => handleUpdateStatus(app.id, "accepted")}>
-                    Accept
-                  </button>
-                  <button onClick={() => handleUpdateStatus(app.id, "rejected")}>
-                    Reject
-                  </button>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* Applicant-only form */}
-      {!isRecruiter && (
-        <div className="job-application-form" style={{ flex: 1, padding: "1rem" }}>
-          <h2>Apply for this job</h2>
-          {/* Your application form goes here */}
-          <form>
-            <fieldset>
-              <legend>Personal Info</legend>
-              <label>Name: <input type="text" required /></label>
-              <label>DOB: <input type="date" required /></label>
-              <label>Passport: <input type="text" required /></label>
-              <label>Country: <input type="text" required /></label>
-              <label>Residence: <input type="text" required /></label>
-              <label>Phone: <input type="tel" required /></label>
-            </fieldset>
-            <fieldset>
-              <legend>Upload</legend>
-              <label>CV/Resume: <input type="file" required /></label>
-            </fieldset>
-            <fieldset>
-              <legend>Questions</legend>
-              <label>C++? <select><option value="yes">Yes</option><option value="no">No</option></select></label>
-              <label>Ethnicity: <input type="text" /></label>
-              <label>Visa: <input type="text" /></label>
-            </fieldset>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      )}
     </div>
   );
 }

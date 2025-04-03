@@ -6,6 +6,7 @@ from app.database.database import get_db
 from app.auth.auth import get_current_user
 from app.schemas.job import JobCreate, JobUpdate, JobResponse
 from app.models.job import Job
+from app.models.application import Application
 from datetime import datetime
 
 
@@ -101,9 +102,43 @@ def delete_job(
     return {"message": "Job deleted successfully"}
 
 
-@router.get("/{job_id}", response_model=JobResponse)
-def get_job(job_id: int, db: Session = Depends(get_db)):
+@router.get("/{job_id}")
+def get_job(
+    job_id: int,
+    db: Session = Depends(get_db),
+    current_user=Depends(get_current_user)
+):
     job = db.query(Job).filter(Job.id == job_id).first()
     if not job:
         raise HTTPException(status_code=404, detail="Job not found")
-    return job
+
+    job_data = {
+        "id": job.id,
+        "title": job.title,
+        "description": job.description,
+        "detailed_description": job.detailed_description,
+        "in_person_mode": job.in_person_mode,
+        "compensation": job.compensation,
+        "location": job.location,
+        "job_posted": job.job_posted,
+        "job_expiration": job.job_expiration
+    }
+
+    if current_user.role == "recruiter":
+        applications = db.query(Application).filter(
+            Application.job_id == job_id).all()
+    grouped = {
+        "accepted": [],
+        "rejected": [],
+        "not_reviewed": []
+    }
+    for app in applications:
+        grouped[app.status.value].append({
+            "id": app.id,
+            "user_id": app.user_id,
+            "responses": app.responses,
+            "status": app.status.value
+        })
+    job_data["applications"] = grouped
+
+    return job_data

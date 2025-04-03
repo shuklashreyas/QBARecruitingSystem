@@ -11,26 +11,29 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 from dotenv import load_dotenv
+from app.routes import application
+
 load_dotenv()
 
 # Import routers
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000",
+                   "http://127.0.0.1:3000"],  # Frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Register routers
 app.include_router(auth_router, prefix="/auth", tags=["Auth"])
 app.include_router(user_router, prefix="/users", tags=["Users"])
 app.include_router(job_router, prefix="/jobs", tags=["Jobs"])
 app.include_router(recruiter_router)
-
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Frontend URL
-    allow_credentials=True,  # 👈 MUST be True
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+app.include_router(application.router)
 
 
 class UserLogin(BaseModel):
@@ -46,13 +49,3 @@ def get_jobs(token: str = Depends(oauth2_scheme)):
 @app.get("/")
 def home():
     return {"message": "Job Management API is running"}
-
-
-app.add_middleware(
-    CORSMiddleware,
-    # or use ["*"] for all origins (not recommended for production)
-    allow_origins=["http://localhost:3000"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)

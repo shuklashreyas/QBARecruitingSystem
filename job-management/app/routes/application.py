@@ -1,28 +1,28 @@
-from fastapi import APIRouter, Depends, HTTPException
+# app/routes/application.py
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.database.database import get_db
 from app.models.application import Application
-from app.schemas.application import ApplicationStatusUpdate
+from app.auth.auth import get_current_user
+from app.schemas.application import ApplicationCreate
+import json
 
-router = APIRouter(
-    prefix="/applications",
-    tags=["Applications"]
-)
+router = APIRouter()
 
 
-@router.put("/{application_id}/status")
-def update_application_status(
-    application_id: int,
-    status_update: ApplicationStatusUpdate,
-    db: Session = Depends(get_db)
+@router.post("/applications")
+def create_application(
+    application: ApplicationCreate,
+    db: Session = Depends(get_db),
+    current_user=Depends(get_current_user)
 ):
-    application = db.query(Application).filter(
-        Application.id == application_id).first()
-
-    if not application:
-        raise HTTPException(status_code=404, detail="Application not found")
-
-    application.status = status_update.status
+    new_app = Application(
+        job_id=application.job_id,
+        user_id=current_user.id,
+        status="not_reviewed",
+        responses=json.dumps(application.responses)
+    )
+    db.add(new_app)
     db.commit()
-    db.refresh(application)
-    return {"message": "Status updated", "application_id": application.id, "new_status": application.status}
+    db.refresh(new_app)
+    return {"message": "Application submitted successfully"}

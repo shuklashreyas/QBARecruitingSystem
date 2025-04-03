@@ -7,7 +7,6 @@ from passlib.context import CryptContext
 from app.auth.auth import (
     authenticate_user,
     create_access_token,
-    create_refresh_token,
     decode_access_token,
     oauth2_scheme
 )

@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from enum import Enum
+from typing import Dict, Any
 from app.models.application import ApplicationStatus
 
 
@@ -25,3 +26,8 @@ class ApplicationUpdateStatus(BaseModel):
 
 class ApplicationStatusUpdate(BaseModel):
     status: ApplicationStatus
+
+
+class ApplicationCreate(BaseModel):
+    job_id: int
+    responses: Dict[str, Any]

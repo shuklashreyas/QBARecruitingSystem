@@ -15,7 +15,6 @@ function JobTable({ jobs, currentUser }) {
       day: "numeric",
     });
   };
-  
 
   return (
     <table className="job-table">
@@ -27,8 +26,8 @@ function JobTable({ jobs, currentUser }) {
           <th>Compensation / hr</th>
           <th>Job Description</th>
           <th>Location</th>
-          <th>Posted</th>         {/* ✅ New column */}
-          <th>Last Date</th>      {/* ✅ New column */}
+          <th>Posted</th>
+          <th>Last Date</th>
           {isRecruiter && <th className="edit-col">Edit</th>}
         </tr>
       </thead>
@@ -37,17 +36,15 @@ function JobTable({ jobs, currentUser }) {
           jobs.map((job) => (
             <tr key={job.id}>
               <td>
-                <Link to={currentUser?.role === 'recruiter' ? `/recruiter/jobs/${job.id}` : `/jobs/${job.id}`}>
-  {job.title}
-</Link>
+                <Link to={`/jobs/${job.id}`}>{job.title}</Link>
               </td>
               <td>{job.id}</td>
               <td>{job.in_person_mode || "N/A"}</td>
               <td>{job.compensation || "N/A"}</td>
               <td>{job.description}</td>
               <td>{job.location || "N/A"}</td>
-              <td>{formatDate(job.job_posted) || "N/A"}</td>        {/* ✅ Display posted date */}
-              <td>{formatDate(job.job_expiration) || "N/A"}</td>    {/* ✅ Display expiration date */}
+              <td>{formatDate(job.job_posted) || "N/A"}</td>
+              <td>{formatDate(job.job_expiration) || "N/A"}</td>
               {isRecruiter && (
                 <td className="edit-col">
                   <Link to={`/jobs/edit/${job.id}`}>

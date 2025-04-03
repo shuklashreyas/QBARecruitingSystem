@@ -55,7 +55,6 @@ function JobListingsPage() {
             setTitleFilter(e.target.value);
           }}
         />
-        <button onClick={() => setOffset(0)}>Search</button>
       </div>
 
       <JobTable jobs={jobs} currentUser={currentUser} />

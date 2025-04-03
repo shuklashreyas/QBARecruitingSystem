@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, ForeignKey, Enum
+from sqlalchemy import Column, Integer, ForeignKey, Enum, Text
 from sqlalchemy.orm import relationship
 from app.database.database import Base
 from enum import Enum as PyEnum
@@ -18,6 +18,7 @@ class Application(Base):
     job_id = Column(Integer, ForeignKey("jobs.id"))
     status = Column(Enum(ApplicationStatus),
                     default=ApplicationStatus.not_reviewed)
+    responses = Column(Text)
 
     user = relationship("User", back_populates="applications")
     job = relationship("Job", back_populates="applications")
