@@ -17,6 +17,7 @@ class UserResponse(UserBase):
 class TokenData(BaseModel):
     username: str
 
+
 class UserRole(str, Enum):
     admin = "admin"
     recruiter = "recruiter"
@@ -27,8 +28,8 @@ class UserCreate(BaseModel):
     username: str
     email: EmailStr
     password: str
-    role: UserRole 
-    
+    role: UserRole
+
     class Config:
         schema_extra = {
             "example": {

@@ -1,5 +1,4 @@
-// src/pages/JobDetailPage.js
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import "github-markdown-css";
@@ -13,93 +12,99 @@ function JobDetailPage() {
     rejected: [],
     not_reviewed: [],
   });
-
-  const currentUser = JSON.parse(localStorage.getItem("user") || "null");
-
-  const fetchJob = useCallback(async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await fetch(`http://127.0.0.1:8000/jobs/${jobId}`, {
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch job");
-      }
-
-      const data = await response.json();
-      setJob(data);
-
-      if (currentUser?.role === "recruiter") {
-        setApplications(data.applications || {
-          accepted: [],
-          rejected: [],
-          not_reviewed: [],
-        });
-      }
-    } catch (error) {
-      console.error("Error fetching job details:", error);
-    }
-  }, [jobId]); // currentUser removed to avoid unnecessary rerenders
+  const [hasApplied, setHasApplied] = useState(false);
 
   useEffect(() => {
-    fetchJob();
-  }, [fetchJob]);
+    const fetchJob = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await fetch(`http://127.0.0.1:8000/jobs/${jobId}`, {
+          headers: token ? { Authorization: `Bearer ${token}` } : {},
+        });
+        const data = await response.json();
+        setJob(data);
 
-  const handleUpdateStatus = async (applicationId, newStatus) => {
-    try {
-      const token = localStorage.getItem("token");
-      await fetch(
-        `http://127.0.0.1:8000/recruiter/applications/${applicationId}/status`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ status: newStatus }),
+        const currentUser = localStorage.getItem("user")
+          ? JSON.parse(localStorage.getItem("user"))
+          : null;
+
+        if (currentUser?.role === "recruiter") {
+          const grouped = {
+            accepted: [],
+            rejected: [],
+            not_reviewed: [],
+          };
+          const appGroups = data.applications || {};
+
+          Object.entries(appGroups).forEach(([status, apps]) => {
+            grouped[status] = apps;
+          });
+          setApplications(grouped);
         }
-      );
-      fetchJob();
-    } catch (err) {
-      console.error("Error updating application status:", err);
-    }
-  };
+
+        if (currentUser?.role === "applicant") {
+          setHasApplied(data.has_applied);
+        }
+      } catch (error) {
+        console.error("Error fetching job details:", error);
+      }
+    };
+
+    fetchJob();
+  }, [jobId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const responses = Object.fromEntries(formData.entries());
+    const formData = new FormData();
+
+    formData.append("job_id", jobId);
+
+    const responses = {
+      name: e.target.name.value,
+      age: e.target.age.value,
+      address: e.target.address.value,
+    };
+    formData.append("responses", JSON.stringify(responses));
+
+    const resumeFile = e.target.resume.files[0];
+    if (resumeFile) {
+      formData.append("resume", resumeFile);
+    }
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://127.0.0.1:8000/applications", {
+      const response = await fetch("http://127.0.0.1:8000/applications", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ job_id: jobId, responses }),
+        body: formData,
       });
 
-      if (!res.ok) {
-        const errMsg = await res.text();
-        throw new Error(errMsg);
+      if (!response.ok) {
+        const data = await response.json();
+        alert(data.detail || "Error submitting application.");
+        return;
       }
 
-      await fetchJob();
       alert("Application submitted successfully");
+      window.location.reload();
     } catch (err) {
       console.error("Error submitting application:", err);
-      alert("Failed to submit application.");
     }
   };
 
   if (!job) return <div>Loading...</div>;
 
+  const currentUser = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : null;
+
   return (
     <div className="job-detail-page">
-      <h1>{job.title}</h1>
+      <h1>
+        {job.title} {hasApplied && <span style={{ color: "green" }}>- Applied</span>}
+      </h1>
       <div className="job-detail-container">
         <div className="job-description">
           <h2>Job Description</h2>
@@ -117,37 +122,42 @@ function JobDetailPage() {
             {["not_reviewed", "accepted", "rejected"].map((status) => (
               <div key={status} className="application-column">
                 <h3>{status.replace("_", " ").toUpperCase()}</h3>
-                {applications[status]?.length ? (
-                  applications[status].map((app) => (
-                    <div key={app.id} className="application-card">
-                      <p>User ID: {app.user_id}</p>
-                      {status === "not_reviewed" && (
-                        <>
-                          <button onClick={() => handleUpdateStatus(app.id, "accepted")}>Accept</button>
-                          <button onClick={() => handleUpdateStatus(app.id, "rejected")}>Reject</button>
-                        </>
-                      )}
-                    </div>
-                  ))
-                ) : (
-                  <p>No applications</p>
-                )}
+                <div className="application-list">
+                  {applications[status]?.length ? (
+                    applications[status].map((app) => (
+                      <div
+                        key={app.id}
+                        className="application-card"
+                        onClick={() => (window.location.href = `/applications/${app.id}`)}
+                      >
+                        <p>
+                          <strong>{app.user_name}</strong>
+                        </p>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No applications</p>
+                  )}
+                </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="job-application-form">
-            <h2>Apply for this job</h2>
-            <form onSubmit={handleSubmit}>
-              <fieldset>
-                <legend>Personal Details</legend>
-                <label>Name: <input type="text" name="name" required /></label>
-                <label>Age: <input type="number" name="age" required /></label>
-                <label>Current Address: <input type="text" name="address" required /></label>
-              </fieldset>
-              <button type="submit">Submit Application</button>
-            </form>
-          </div>
+          !hasApplied && (
+            <div className="job-application-form">
+              <h2>Apply for this job</h2>
+              <form onSubmit={handleSubmit} encType="multipart/form-data">
+                <fieldset>
+                  <legend>Personal Details</legend>
+                  <label>Name: <input type="text" name="name" required /></label>
+                  <label>Age: <input type="number" name="age" required /></label>
+                  <label>Current Address: <input type="text" name="address" required /></label>
+                  <label>Upload Resume: <input type="file" name="resume" accept=".pdf,.doc,.docx" required /></label>
+                </fieldset>
+                <button type="submit">Submit Application</button>
+              </form>
+            </div>
+          )
         )}
       </div>
     </div>
