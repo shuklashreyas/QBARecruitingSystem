@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from dotenv import load_dotenv
 from app.routes import application
+from fastapi.staticfiles import StaticFiles
 
 load_dotenv()
 
@@ -34,6 +35,8 @@ app.include_router(user_router, prefix="/users", tags=["Users"])
 app.include_router(job_router, prefix="/jobs", tags=["Jobs"])
 app.include_router(recruiter_router)
 app.include_router(application.router)
+
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 
 class UserLogin(BaseModel):

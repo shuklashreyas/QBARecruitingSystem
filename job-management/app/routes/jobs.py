@@ -8,6 +8,7 @@ from app.schemas.job import JobCreate, JobUpdate, JobResponse
 from app.models.job import Job
 from app.models.application import Application
 from datetime import datetime
+from app.models.user import User
 
 
 router = APIRouter()
@@ -124,21 +125,39 @@ def get_job(
         "job_expiration": job.job_expiration
     }
 
+    applications = db.query(Application).filter(
+        Application.job_id == job_id).all()
+
+    # ✅ Applied status
+    has_applied = any(app.user_id == current_user.id for app in applications)
+    job_data["has_applied"] = has_applied
+
     if current_user.role == "recruiter":
-        applications = db.query(Application).filter(
-            Application.job_id == job_id).all()
-    grouped = {
-        "accepted": [],
-        "rejected": [],
-        "not_reviewed": []
-    }
-    for app in applications:
-        grouped[app.status.value].append({
-            "id": app.id,
-            "user_id": app.user_id,
-            "responses": app.responses,
-            "status": app.status.value
-        })
-    job_data["applications"] = grouped
+        grouped = {
+            "accepted": [],
+            "rejected": [],
+            "not_reviewed": []
+        }
+        for app in applications:
+            user = db.query(User).filter(User.id == app.user_id).first()
+            user_name = user.name if user else f"User {app.user_id}"
+            grouped[app.status.value].append({
+                "id": app.id,
+                "user_id": app.user_id,
+                "user_name": user_name,  # ✅ Include user_name here
+                "responses": app.responses,
+                "status": app.status.value
+            })
+        job_data["applications"] = grouped
+    else:
+        job_data["applications"] = [
+            {
+                "id": app.id,
+                "user_id": app.user_id,
+                "responses": app.responses,
+                "status": app.status.value
+            }
+            for app in applications
+        ]
 
     return job_data
