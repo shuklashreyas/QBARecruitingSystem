@@ -20,11 +20,16 @@ def create_job(
     db: Session = Depends(get_db),
     current_user=Depends(get_current_user)
 ):
-    new_job = Job(**job.dict(), owner_id=current_user.id)
+    data = job.dict()
+
+    data["job_questions"] = data.get("job_questions", [])
+    data["url_descriptions"] = data.get("url_descriptions", [])
 
     # Fallback to today's date if job_posted isn't explicitly given
-    if not new_job.job_posted:
-        new_job.job_posted = datetime.utcnow().strftime("%Y-%m-%d")
+    if not data.get("job_posted"):
+        data["job_posted"] = datetime.utcnow().strftime("%Y-%m-%d")
+
+    new_job = Job(**data, owner_id=current_user.id)
 
     db.add(new_job)
     db.commit()
@@ -89,14 +94,15 @@ def delete_job(
     db: Session = Depends(get_db),
     current_user=Depends(get_current_user)
 ):
-    job = db.query(Job).filter(Job.id == job_id,
-                               Job.owner_id == current_user.id).first()
+    # Only recruiters can delete jobs
+    if current_user.role != "recruiter":
+        raise HTTPException(
+            status_code=403, detail="Not authorized to delete jobs")
+
+    job = db.query(Job).filter(Job.id == job_id).first()
 
     if not job:
-        raise HTTPException(
-            status_code=404,
-            detail="Job not found or not authorized to delete"
-        )
+        raise HTTPException(status_code=404, detail="Job not found")
 
     db.delete(job)
     db.commit()
@@ -114,16 +120,20 @@ def get_job(
         raise HTTPException(status_code=404, detail="Job not found")
 
     job_data = {
-        "id": job.id,
-        "title": job.title,
-        "description": job.description,
-        "detailed_description": job.detailed_description,
-        "in_person_mode": job.in_person_mode,
-        "compensation": job.compensation,
-        "location": job.location,
-        "job_posted": job.job_posted,
-        "job_expiration": job.job_expiration
-    }
+    "id": job.id,
+    "title": job.title,
+    "description": job.description,
+    "detailed_description": job.detailed_description,
+    "in_person_mode": job.in_person_mode,
+    "compensation": job.compensation,
+    "location": job.location,
+    "job_posted": job.job_posted,
+    "job_expiration": job.job_expiration,
+    "other_materials": job.other_materials,
+    "job_questions": job.job_questions,
+    "url_descriptions": job.url_descriptions
+}
+    print("Serving job data:", job_data)
 
     applications = db.query(Application).filter(
         Application.job_id == job_id).all()

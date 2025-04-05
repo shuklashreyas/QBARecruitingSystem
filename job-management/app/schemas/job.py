@@ -1,6 +1,5 @@
-from typing import Optional
+from typing import List, Optional
 from pydantic import BaseModel
-
 
 class JobBase(BaseModel):
     title: str
@@ -11,11 +10,12 @@ class JobBase(BaseModel):
     location: Optional[str] = None
     job_posted: Optional[str] = None
     job_expiration: Optional[str] = None
-
+    other_materials: Optional[List[str]] = []
+    job_questions: Optional[List[str]] = []
+    url_descriptions: Optional[List[str]] = []
 
 class JobCreate(JobBase):
     pass
-
 
 class JobUpdate(BaseModel):
     title: Optional[str] = None
@@ -26,7 +26,9 @@ class JobUpdate(BaseModel):
     location: Optional[str] = None
     job_posted: Optional[str] = None
     job_expiration: Optional[str] = None
-
+    other_materials: Optional[List[str]] = []
+    job_questions: Optional[List[str]] = []
+    url_descriptions: Optional[List[str]] = []
 
 class JobResponse(JobBase):
     id: int

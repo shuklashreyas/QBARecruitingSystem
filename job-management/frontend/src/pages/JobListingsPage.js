@@ -31,16 +31,22 @@ function JobListingsPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [titleFilter, offset]);
 
-  console.log("User role on Jobs listing page is:", currentUser ? currentUser.role : "No user role found");
-  
   return (
     <div className="job-listings-container">
       <h1 className="page-title">QBA Job Listings</h1>
 
-      {currentUser && currentUser.role === "recruiter" && (
+      {currentUser?.role === "recruiter" && (
         <div className="create-job-button" style={{ marginBottom: "1.5rem", textAlign: "right" }}>
           <Link to="/jobs/create">
             <button>Create New Job</button>
+          </Link>
+        </div>
+      )}
+
+      {currentUser?.role === "applicant" && (
+        <div style={{ marginBottom: "1.5rem", textAlign: "right" }}>
+          <Link to="/my-applications">
+            <button>View My Applications</button>
           </Link>
         </div>
       )}

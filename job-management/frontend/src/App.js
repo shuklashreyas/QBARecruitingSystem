@@ -7,6 +7,10 @@ import JobDetailPage from './pages/JobDetailPage';
 import CreateJobPage from './pages/CreateJobPage';
 import EditJobPage from './pages/EditJobPage';
 import ApplicantReviewPage from './pages/ApplicantReviewPage';
+import RegisterPage from './pages/RegisterPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
+import MyApplicationsPage from "./pages/MyApplicationsPage";
 
 
 function App() {
@@ -23,6 +27,11 @@ function App() {
         <Route path="/jobs/edit/:jobId" element={ currentUserRole === "recruiter" ? <EditJobPage /> : <Navigate to="/jobs" /> } />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/applications/:applicationId" element={<ApplicantReviewPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
+        <Route path="/my-applications" element={<MyApplicationsPage />} />
+        
       </Routes>
     </Router>
   );

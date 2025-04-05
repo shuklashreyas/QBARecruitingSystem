@@ -111,3 +111,54 @@ a:hover {
 .job-table th {
   background-color: #eee;
 }
+
+.my-applications-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.my-applications-table th,
+.my-applications-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.my-applications-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.my-applications-table th {
+  background-color: #f3f4f6;
+  font-weight: bold;
+}
+
+.my-applications-table td a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.my-applications-table td a:hover {
+  text-decoration: underline;
+}
+
+.status {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.status.accepted {
+  color: green;
+}
+.status.rejected {
+  color: red;
+}
+.status.not_reviewed {
+  color: orange;
+}
