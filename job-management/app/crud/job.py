@@ -17,6 +17,7 @@ class JobCreate(BaseModel):
     description: str
     company: str
 
+
 # CREATE a new job
 
 

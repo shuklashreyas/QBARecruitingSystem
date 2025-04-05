@@ -17,9 +17,20 @@ function CreateJobPage() {
   const [location, setLocation] = useState("");
   const [jobPosted, setJobPosted] = useState("");
   const [jobExpiration, setJobExpiration] = useState("");
+  const [otherMaterials, setOtherMaterials] = useState([]);
+  const [jobQuestion, setJobQuestion] = useState("");
+  const [questionType, setQuestionType] = useState("short_answer");
+  const [urlLabel, setUrlLabel] = useState("");
+
+  const handleOtherMaterialChange = (e) => {
+    const selected = Array.from(e.target.selectedOptions).map((o) => o.value);
+    setOtherMaterials(selected);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const jobMaterials = otherMaterials;
 
     const aboutQBA = `## About QBA
 
@@ -57,8 +68,7 @@ ${plusIfYouHave ? `\n---\n### A Plus if You Have\n${plusIfYouHave}\n` : ""}
 
 ---
 
-${accommodations}
-`;
+${accommodations}`;
 
     const jobData = {
       title,
@@ -69,10 +79,15 @@ ${accommodations}
       location,
       job_posted: jobPosted,
       job_expiration: jobExpiration,
+      other_materials: otherMaterials,
+      job_questions: jobMaterials.includes("job_question") ? [jobQuestion] : [],
+      url_descriptions: jobMaterials.includes("url") ? [urlLabel] : []
     };
 
     try {
       const token = localStorage.getItem("token");
+      console.log("Submitting jobData:", JSON.stringify(jobData, null, 2));
+
       const response = await fetch("http://127.0.0.1:8000/jobs", {
         method: "POST",
         headers: {
@@ -99,21 +114,12 @@ ${accommodations}
       <form onSubmit={handleSubmit}>
         <div>
           <label>Job Name:</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
+          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
         </div>
 
         <div>
           <label>Work Mode:</label>
-          <select
-            value={inPersonMode}
-            onChange={(e) => setInPersonMode(e.target.value)}
-            required
-          >
+          <select value={inPersonMode} onChange={(e) => setInPersonMode(e.target.value)} required>
             <option value="">Select</option>
             <option value="In-Person">In-Person</option>
             <option value="Hybrid">Hybrid</option>
@@ -123,94 +129,81 @@ ${accommodations}
 
         <div>
           <label>Short Job Description:</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
         </div>
 
         <div>
           <label>Job Role:</label>
-          <textarea
-            value={jobRole}
-            onChange={(e) => setJobRole(e.target.value)}
-            required
-          />
+          <textarea value={jobRole} onChange={(e) => setJobRole(e.target.value)} required />
         </div>
 
         <div>
           <label>What You'll Do:</label>
-          <textarea
-            value={whatYouDo}
-            onChange={(e) => setWhatYouDo(e.target.value)}
-            required
-          />
+          <textarea value={whatYouDo} onChange={(e) => setWhatYouDo(e.target.value)} required />
         </div>
 
         <div>
           <label>Qualifications:</label>
-          <textarea
-            value={qualifications}
-            onChange={(e) => setQualifications(e.target.value)}
-            required
-          />
+          <textarea value={qualifications} onChange={(e) => setQualifications(e.target.value)} required />
         </div>
 
         <div>
           <label>A Plus if You Have (Optional):</label>
-          <textarea
-            value={plusIfYouHave}
-            onChange={(e) => setPlusIfYouHave(e.target.value)}
-          />
+          <textarea value={plusIfYouHave} onChange={(e) => setPlusIfYouHave(e.target.value)} />
         </div>
 
         <div>
           <label>Compensation (USD/hour):</label>
-          <input
-            type="number"
-            min="0"
-            value={compensation}
-            onChange={(e) => setCompensation(e.target.value)}
-            required
-          />
+          <input type="number" min="0" value={compensation} onChange={(e) => setCompensation(e.target.value)} required />
         </div>
 
         <div>
           <label>Location:</label>
-          <input
-            list="location-options"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            required
-          />
+          <input list="location-options" value={location} onChange={(e) => setLocation(e.target.value)} required />
           <datalist id="location-options">
-            {countries
-              .map((country) => country.name.common)
-              .sort()
-              .map((countryName) => (
-                <option key={countryName} value={countryName} />
-              ))}
+            {countries.map((country) => country.name.common).sort().map((name) => (
+              <option key={name} value={name} />
+            ))}
           </datalist>
         </div>
 
         <div>
           <label>Job Posted Date:</label>
-          <input
-            type="date"
-            value={jobPosted}
-            onChange={(e) => setJobPosted(e.target.value)}
-          />
+          <input type="date" value={jobPosted} onChange={(e) => setJobPosted(e.target.value)} />
         </div>
 
         <div>
           <label>Application Deadline:</label>
-          <input
-            type="date"
-            value={jobExpiration}
-            onChange={(e) => setJobExpiration(e.target.value)}
-          />
+          <input type="date" value={jobExpiration} onChange={(e) => setJobExpiration(e.target.value)} />
         </div>
+
+        <div>
+          <label>Other Material (Optional):</label>
+          <select multiple value={otherMaterials} onChange={handleOtherMaterialChange}>
+            <option value="job_question">Job Related Question</option>
+            <option value="transcript">Latest School Transcript</option>
+            <option value="cover_letter">Cover Letter</option>
+            <option value="url">URLs</option>
+          </select>
+        </div>
+
+        {otherMaterials.includes("job_question") && (
+          <div>
+            <label>Custom Job Question:</label>
+            <input type="text" value={jobQuestion} onChange={(e) => setJobQuestion(e.target.value)} />
+            <select value={questionType} onChange={(e) => setQuestionType(e.target.value)}>
+              <option value="short_answer">Short Answer</option>
+              <option value="yes_no">Yes / No / N/A</option>
+            </select>
+          </div>
+        )}
+
+        {otherMaterials.includes("url") && (
+          <div>
+            <label>URL Field Label (e.g., Portfolio, GitHub):</label>
+            <input type="text" value={urlLabel} onChange={(e) => setUrlLabel(e.target.value)} />
+          </div>
+        )}
 
         <button type="submit">Create Job</button>
       </form>

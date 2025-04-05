@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Text, Index
+from typing import Any, Dict, Optional
+from sqlalchemy import JSON, Column, ForeignKey, Integer, String, Text, Index
 from sqlalchemy.orm import relationship
 from app.database.database import Base
 
@@ -15,6 +16,10 @@ class Job(Base):
     location = Column(String)
     job_posted = Column(String)
     job_expiration = Column(String)
+    owner_id = Column(Integer, ForeignKey("users.id"))
+    other_materials = Column(JSON, default=[])  # ✅ THIS LINE FIXES IT
+    job_questions = Column(JSON, default=[])
+    url_descriptions = Column(JSON, default=[])
 
     applications = relationship(
         "Application", back_populates="job", cascade="all, delete"

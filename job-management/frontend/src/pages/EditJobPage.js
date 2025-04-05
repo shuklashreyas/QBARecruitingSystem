@@ -3,6 +3,16 @@ import { useParams, useNavigate } from "react-router-dom";
 import countries from "world-countries";
 import "./EditJobPage.css";
 
+const US_STATES = [
+  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+  "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+  "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+  "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+  "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+  "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
+  "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+];
+
 function EditJobPage() {
   const { jobId } = useParams();
   const navigate = useNavigate();
@@ -21,11 +31,25 @@ function EditJobPage() {
   const [whatYouDo, setWhatYouDo] = useState("");
   const [qualifications, setQualifications] = useState("");
   const [plusPoints, setPlusPoints] = useState("");
+  const [usState, setUsState] = useState("");
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/jobs/${jobId}`)
+    const token = localStorage.getItem("token");
+
+    fetch(`http://127.0.0.1:8000/jobs/${jobId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
+        console.log("Fetched job data:", data);
+
+        if (data.detail === "Not authenticated") {
+          alert("You're not logged in. Please sign in again.");
+          return;
+        }
+
         setJobData({
           title: data.title || "",
           description: data.description || "",
@@ -36,12 +60,17 @@ function EditJobPage() {
           job_expiration: data.job_expiration || "",
         });
 
-        // Attempt to extract original fields from existing detailed_description
         const desc = data.detailed_description || "";
-        setJobRole(desc.match(/### Job Role\n([\s\S]*?)\n###/i)?.[1]?.trim() || "");
-        setWhatYouDo(desc.match(/### What You’ll Do\n([\s\S]*?)\n###/i)?.[1]?.trim() || "");
-        setQualifications(desc.match(/### Qualifications\n([\s\S]*?)\n###/i)?.[1]?.trim() || "");
-        setPlusPoints(desc.match(/### A Plus if You Have\n([\s\S]*?)\n###/i)?.[1]?.trim() || "");
+        const extractSection = (label) => {
+          const pattern = new RegExp(`### ${label}\\s*\\n([\\s\\S]*?)(?=\\n###|\\n---|$)`, "i");
+          const match = desc.match(pattern);
+          return match ? match[1].trim() : "";
+        };
+
+        setJobRole(extractSection("Job Role"));
+        setWhatYouDo(extractSection("What You’ll Do"));
+        setQualifications(extractSection("Qualifications"));
+        setPlusPoints(extractSection("A Plus if You Have"));
       })
       .catch((error) => console.error("Error fetching job data:", error));
   }, [jobId]);
@@ -90,7 +119,12 @@ Learn more about how QBA processes your personal information by reading our Priv
   };
 
   const handleChange = (e) => {
-    setJobData({ ...jobData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === "usState") {
+      setUsState(value);
+    } else {
+      setJobData({ ...jobData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -99,6 +133,10 @@ Learn more about how QBA processes your personal information by reading our Priv
 
     const payload = {
       ...jobData,
+      location:
+        jobData.location === "United States" && usState
+          ? `United States, ${usState}`
+          : jobData.location,
       detailed_description: buildDetailedDescription(),
     };
 
@@ -149,11 +187,7 @@ Learn more about how QBA processes your personal information by reading our Priv
 
   return (
     <div className="container edit-job-page">
-      <button
-        className="delete-button"
-        onClick={handleDelete}
-        style={{ backgroundColor: "#dc3545", marginTop: "1rem" }}
-      >
+      <button className="delete-button" onClick={handleDelete} style={{ backgroundColor: "#dc3545", marginTop: "1rem" }}>
         Delete This Job
       </button>
 
@@ -176,39 +210,32 @@ Learn more about how QBA processes your personal information by reading our Priv
 
         <div>
           <label>Short Job Description:</label>
-          <textarea name="description" value={jobData.description} onChange={handleChange} required />
+          <textarea name="description" value={jobData.description} onChange={handleChange} required rows={3} />
         </div>
 
         <div>
           <label>Job Role:</label>
-          <textarea value={jobRole} onChange={(e) => setJobRole(e.target.value)} required />
+          <textarea value={jobRole} onChange={(e) => setJobRole(e.target.value)} required rows={3} />
         </div>
 
         <div>
           <label>What You’ll Do:</label>
-          <textarea value={whatYouDo} onChange={(e) => setWhatYouDo(e.target.value)} required />
+          <textarea value={whatYouDo} onChange={(e) => setWhatYouDo(e.target.value)} required rows={3} />
         </div>
 
         <div>
           <label>Qualifications:</label>
-          <textarea value={qualifications} onChange={(e) => setQualifications(e.target.value)} required />
+          <textarea value={qualifications} onChange={(e) => setQualifications(e.target.value)} required rows={3} />
         </div>
 
         <div>
           <label>A Plus if You Have (optional):</label>
-          <textarea value={plusPoints} onChange={(e) => setPlusPoints(e.target.value)} />
+          <textarea value={plusPoints} onChange={(e) => setPlusPoints(e.target.value)} rows={2} />
         </div>
 
         <div>
           <label>Compensation (USD/hour):</label>
-          <input
-            type="number"
-            name="compensation"
-            min="0"
-            value={jobData.compensation}
-            onChange={handleChange}
-            required
-          />
+          <input type="number" name="compensation" min="0" value={jobData.compensation} onChange={handleChange} required />
         </div>
 
         <div>
@@ -230,6 +257,20 @@ Learn more about how QBA processes your personal information by reading our Priv
               ))}
           </datalist>
         </div>
+
+        {jobData.location === "United States" && (
+          <div>
+            <label>State (US only):</label>
+            <select name="usState" value={usState} onChange={handleChange} required>
+              <option value="">Select a state</option>
+              {US_STATES.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
 
         <div>
           <label>Job Posted Date:</label>

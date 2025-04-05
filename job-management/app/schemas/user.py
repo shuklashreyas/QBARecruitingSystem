@@ -29,6 +29,7 @@ class UserCreate(BaseModel):
     email: EmailStr
     password: str
     role: UserRole
+    name: str
 
     class Config:
         schema_extra = {
@@ -36,6 +37,7 @@ class UserCreate(BaseModel):
                 "username": "newuser",
                 "email": "newuser@example.com",
                 "password": "password123",
-                "role": "recruiter"
+                "role": "recruiter",
+                "name": "New User"
             }
         }
