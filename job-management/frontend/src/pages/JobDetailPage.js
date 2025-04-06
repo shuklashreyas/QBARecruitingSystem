@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import "github-markdown-css";
 import "./JobDetailPage.css";
+import { Link } from "react-router-dom";
 
 function JobDetailPage() {
   const { jobId } = useParams();
@@ -120,6 +121,13 @@ function JobDetailPage() {
 
   return (
     <div className="job-detail-page">
+      <Link to="/jobs" style={{ position: "absolute", top: "20px", left: "20px" }}>
+        <img
+          src="/QBA.png"
+          alt="QBA Logo"
+          style={{ height: "60px", cursor: "pointer" }}
+        />
+      </Link>
       <h1>
         {job.title} {hasApplied && <span style={{ color: "green" }}>- Applied</span>}
       </h1>

@@ -7,7 +7,7 @@ import JobTable from "../components/JobTable";
 function JobListingsPage() {
   const [jobs, setJobs] = useState([]);
   const [titleFilter, setTitleFilter] = useState("");
-  const [limit] = useState(10);
+  const [limit] = useState(15);
   const [offset, setOffset] = useState(0);
 
   const currentUser = localStorage.getItem("user") 
@@ -42,6 +42,13 @@ function JobListingsPage() {
           </Link>
         </div>
       )}
+      <Link to="/jobs" style={{ position: "absolute", top: "20px", left: "20px" }}>
+  <img
+    src="QBA.png"
+    alt="QBA Logo"
+    style={{ height: "60px", cursor: "pointer" }}
+  />
+</Link>
 
       {currentUser?.role === "applicant" && (
         <div style={{ marginBottom: "1.5rem", textAlign: "right" }}>
