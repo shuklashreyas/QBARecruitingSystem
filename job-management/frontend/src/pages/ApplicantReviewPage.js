@@ -49,7 +49,7 @@ function ApplicantReviewPage() {
 
   return (
     <div style={{ display: "flex", height: "100vh" }}>
-      {/* Left: Resume (65%) */}
+      {/* Left Panel: Resume */}
       <div style={{ flex: 0.65, overflow: "auto", borderRight: "1px solid #ccc" }}>
         <h2 style={{ padding: "10px" }}>Resume</h2>
         {resumeUrl ? (
@@ -65,48 +65,89 @@ function ApplicantReviewPage() {
         )}
       </div>
 
-      {/* Right: Responses (35%) */}
-      <div style={{ flex: 0.35, padding: "30px", overflowY: "auto" }}>
-        <h2>Responses</h2>
-        {Object.entries(application.responses).map(([key, value]) => {
-          if (key === "resume") return null;
-          return (
-            <div key={key} style={{ marginBottom: "20px" }}>
-              <strong style={{ display: "block", fontSize: "1rem", color: "#444" }}>
-                {key.charAt(0).toUpperCase() + key.slice(1)}:
-              </strong>
-              <span style={{ fontSize: "1.1rem", color: "#222" }}>{value}</span>
-            </div>
-          );
-        })}
+      {/* Right Panel: Responses */}
+      <div style={{ flex: 0.35, padding: "30px", overflowY: "auto", backgroundColor: "#fafafa" }}>
+        <h2 style={{ marginBottom: "20px", borderBottom: "2px solid #ddd", paddingBottom: "10px" }}>
+          Applicant Details
+        </h2>
 
-        <div style={{ marginTop: "30px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+          {Object.entries(application.responses).map(([key, value]) => {
+            if (key === "resume") return null;
+
+            return (
+              <div
+                key={key}
+                style={{
+                  background: "#fff",
+                  padding: "15px",
+                  borderRadius: "8px",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                }}
+              >
+                <strong
+                  style={{
+                    color: "#555",
+                    fontSize: "0.95rem",
+                    display: "block",
+                    marginBottom: "5px",
+                  }}
+                >
+                  {key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, " ")}:
+                </strong>
+                {typeof value === "object" && value !== null ? (
+                  Object.entries(value).map(([label, url]) => (
+                    <div key={label}>
+                      <strong>{label}:</strong>{" "}
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: "#007bff" }}
+                      >
+                        {url}
+                      </a>
+                    </div>
+                  ))
+                ) : (
+                  <span style={{ fontSize: "1.05rem", color: "#333" }}>{value}</span>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        <div style={{ marginTop: "40px", display: "flex", justifyContent: "space-between" }}>
           <button
             style={{
+              flex: 1,
               marginRight: "10px",
-              padding: "10px 20px",
-              backgroundColor: "#4CAF50",
+              padding: "12px",
+              backgroundColor: "#28a745",
               color: "white",
               border: "none",
-              borderRadius: "4px",
+              borderRadius: "6px",
+              fontWeight: "bold",
               cursor: "pointer",
             }}
             onClick={() => handleStatusChange("accepted")}
           >
-            Accept
+            ✅ Accept
           </button>
           <button
             style={{
-              padding: "10px 20px",
-              backgroundColor: "#f44336",
+              flex: 1,
+              padding: "12px",
+              backgroundColor: "#dc3545",
               color: "white",
               border: "none",
-              borderRadius: "4px",
+              borderRadius: "6px",
+              fontWeight: "bold",
               cursor: "pointer",
             }}
             onClick={() => handleStatusChange("rejected")}
           >
-            Reject
+            ❌ Reject
           </button>
         </div>
       </div>
