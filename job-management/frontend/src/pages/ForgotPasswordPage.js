@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./../App.css";
+import { Link } from "react-router-dom";
 
 function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -21,6 +23,13 @@ function ForgotPasswordPage() {
 
   return (
     <div className="container">
+      <Link to="/login" style={{ position: "absolute", top: "20px", left: "20px" }}>
+  <img
+    src="QBA.png"
+    alt="QBA Logo"
+    style={{ height: "60px", cursor: "pointer" }}
+  />
+</Link>
       <h2>Forgot Password</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -30,7 +39,7 @@ function ForgotPasswordPage() {
           required
           onChange={(e) => setEmail(e.target.value)}
         />
-        <button type="submit">Send Reset Email</button>
+        <button className="pink-button" type="submit">Send Reset Email</button>
       </form>
     </div>
   );

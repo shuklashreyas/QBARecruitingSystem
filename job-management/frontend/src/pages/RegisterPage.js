@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./../App.css";
+import { Link } from "react-router-dom";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -42,6 +44,13 @@ function RegisterPage() {
 
   return (
     <div className="container">
+      <Link to="/login" style={{ position: "absolute", top: "20px", left: "20px" }}>
+  <img
+    src="QBA.png"
+    alt="QBA Logo"
+    style={{ height: "60px", cursor: "pointer" }}
+  />
+</Link>
       <h1>Create an Account</h1>
       <form onSubmit={handleRegister}>
         <input
@@ -80,7 +89,7 @@ function RegisterPage() {
           <option value="applicant">Applicant</option>
           <option value="recruiter">Recruiter</option>
         </select>
-        <button type="submit">Register</button>
+        <button className="pink-button" type="submit">Register</button>
       </form>
     </div>
   );

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./../App.css";
 
 function ResetPasswordPage() {
   const [email, setEmail] = useState("");
@@ -22,6 +24,13 @@ function ResetPasswordPage() {
 
   return (
     <div className="container">
+      <Link to="/login" style={{ position: "absolute", top: "20px", left: "20px" }}>
+  <img
+    src="QBA.png"
+    alt="QBA Logo"
+    style={{ height: "60px", cursor: "pointer" }}
+  />
+</Link>
       <h2>Reset Password</h2>
       <form onSubmit={handleReset}>
         <input type="email" value={email} readOnly />

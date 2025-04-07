@@ -291,6 +291,19 @@ a:hover {
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.pink-buttonnowidth {
+  background-color: #ec008c;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .pink-button:hover {

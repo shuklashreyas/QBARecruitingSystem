@@ -88,7 +88,7 @@ function JobTable({ jobs, currentUser }) {
         </select>
         <input type="number" name="minComp" placeholder="Min Compensation" value={filters.minComp} onChange={handleFilterChange} />
         <input type="number" name="maxComp" placeholder="Max Compensation" value={filters.maxComp} onChange={handleFilterChange} />
-        <button onClick={() => setFilters({ title: "", location: "", workMode: "", minComp: "", maxComp: "" })}>
+        <button className="pink-buttonnowidth "  onClick={() => setFilters({ title: "", location: "", workMode: "", minComp: "", maxComp: "" })}>
           Clear Filters
         </button>
       </div>
