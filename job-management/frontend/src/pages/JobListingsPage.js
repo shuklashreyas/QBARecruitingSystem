@@ -38,7 +38,7 @@ function JobListingsPage() {
       {currentUser?.role === "recruiter" && (
         <div className="create-job-button" style={{ marginBottom: "1.5rem", textAlign: "right" }}>
           <Link to="/jobs/create">
-            <button>Create New Job</button>
+          <button className="pink-buttonnowidth">Create New Job</button>
           </Link>
         </div>
       )}
