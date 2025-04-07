@@ -1,4 +1,4 @@
-/* src/pages/EditJobPage.css - QBA Themed */
+/* src/pages/EditJobPage.css - QBA Themed with Button Hierarchy */
 
 .container.edit-job-page {
   max-width: 800px;
@@ -8,7 +8,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   font-family: 'Poppins', sans-serif;
-  color: #0c2954; /* QBA navy */
+  color: #0c2954;
 }
 
 .edit-job-page h1 {
@@ -68,26 +68,48 @@
   color: #0c2954;
 }
 
-.edit-job-page button[type="submit"] {
-  padding: 0.75rem 1.5rem;
-  background-color: #0c2954;
-  color: white;
+/* Primary (Pink) Button */
+.edit-job-page button[type="submit"],
+.qba-button-primary {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #ec008c;
   border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.edit-job-page button[type="submit"]:hover,
+.qba-button-primary:hover {
+  background-color: #c20078;
+}
+
+/* Reusable Buttons */
+.qba-button-secondary {
+  background-color: #0c2954;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
   border-radius: 6px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  align-self: center;
-  margin-top: 1.5rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
-.edit-job-page button[type="submit"]:hover {
+.qba-button-secondary:hover {
   background-color: #061a35;
 }
 
+.qba-button-danger,
 .delete-button {
-  background-color: #ec008c;
+  background-color: #dc3545;
   color: white;
   border: none;
   padding: 0.6rem 1rem;
@@ -99,6 +121,7 @@
   transition: background-color 0.2s ease;
 }
 
+.qba-button-danger:hover,
 .delete-button:hover {
-  background-color: #c70074;
+  background-color: #b02a37;
 }

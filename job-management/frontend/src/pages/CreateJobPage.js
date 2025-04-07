@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 function CreateJobPage() {
   const navigate = useNavigate();
-
   const [title, setTitle] = useState("");
   const [inPersonMode, setInPersonMode] = useState("");
   const [description, setDescription] = useState("");

@@ -1,4 +1,4 @@
-/* JobTable.css - QBA Styled */
+/* JobTable.css - QBA Styled with Button Hierarchy */
 
 .job-table {
   width: 100%;
@@ -30,9 +30,9 @@
 
 /* Table Cells */
 .job-table td {
-  padding: 12px;
+  padding: 16px;
+  font-size: 1.05rem;
   border-bottom: 1px solid #e0e0e0;
-  font-size: 0.95rem;
 }
 
 /* Edit Column Header */
@@ -46,28 +46,102 @@
   text-align: center;
 }
 
-/* Edit Button */
+/* --------------------------------- */
+/* QBA Button Styles (Reusable)     */
+/* --------------------------------- */
+
+/* Primary button: Pink */
+.qba-button-primary,
 .edit-button {
+  background-color: #ec008c;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  outline: none;
+}
+
+.qba-button-primary:hover,
+.edit-button:hover {
+  background-color: #c20078;
+}
+
+/* Secondary button: Navy */
+.qba-button-secondary {
   background-color: #0c2954;
   color: #ffffff;
   border: none;
   padding: 6px 14px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 500;
   transition: background-color 0.2s ease;
-  outline: none;
 }
 
-.edit-button:hover {
+.qba-button-secondary:hover {
   background-color: #061a35;
 }
 
-.job-table th,
-.job-table td {
-  font-size: 1rem; /* Default: try 1.1rem or 16px for larger text */
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+/* Danger button: Red */
+.qba-button-danger {
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.qba-button-danger:hover {
+  background-color: #b02a37;
+}
+
+
+.deadline-badge {
+  background-color: #ec008c;
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  font-weight: 500;
+}
+
+
+.closing-soon {
+  background-color: #fff4f4 !important;
+  border-left: 5px solid #ec008c;
+}
+
+.sortable {
+  cursor: pointer;
+  position: relative;
+  padding-right: 20px;
+}
+
+.sortable::after {
+  content: "⇅";
+  position: absolute;
+  right: 8px;
+  font-size: 0.8rem;
+  color: #bbb;
+  transition: transform 0.2s;
+}
+
+.sortable.sorted-asc::after {
+  content: "▲";
+  color: #ec008c;
+}
+
+.sortable.sorted-desc::after {
+  content: "▼";
+  color: #ec008c;
 }

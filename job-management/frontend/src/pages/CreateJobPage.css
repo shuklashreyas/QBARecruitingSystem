@@ -1,4 +1,4 @@
-/* CreateJobPage.css - QBA Themed */
+/* CreateJobPage.css - QBA Themed with Button Hierarchy */
 
 .create-job-page {
   max-width: 700px;
@@ -32,17 +32,17 @@
 
 .create-job-page input[type="text"],
 .create-job-page input[type="file"],
-.create-job-page textarea,
 .create-job-page input[type="date"],
 .create-job-page input[type="number"],
+.create-job-page textarea,
 .create-job-page select {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1rem;
-  box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
   color: #222;
 }
 
@@ -51,11 +51,13 @@
   min-height: 120px;
 }
 
-.create-job-page button {
+/* Submit Button - Primary (Pink) */
+.create-job-page button,
+.qba-button-primary {
   display: block;
   width: 100%;
   padding: 0.75rem;
-  background-color: #0c2954;
+  background-color: #ec008c;
   border: none;
   border-radius: 6px;
   font-size: 1.1rem;
@@ -66,6 +68,40 @@
   transition: background-color 0.2s ease;
 }
 
-.create-job-page button:hover {
+.create-job-page button:hover,
+.qba-button-primary:hover {
+  background-color: #c20078;
+}
+
+/* Reusable Buttons */
+.qba-button-secondary {
+  background-color: #0c2954;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.qba-button-secondary:hover {
   background-color: #061a35;
+}
+
+.qba-button-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.qba-button-danger:hover {
+  background-color: #b02a37;
 }

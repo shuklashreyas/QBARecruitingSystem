@@ -56,7 +56,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="container">
+    <div className="login-page">
       <Link to="https://qbadvisory.us/" style={{ position: "absolute", top: "20px", left: "20px" }}>
   <img
     src="QBA.png"
@@ -65,7 +65,6 @@ function LoginPage() {
   />
 </Link>
       <h1>QBA Carrer Center</h1>
-      <h2 className="mb-1">Login</h2>
       <form onSubmit={handleLogin}>
         <input
           type="text"

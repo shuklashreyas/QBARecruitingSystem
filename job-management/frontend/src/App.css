@@ -263,3 +263,36 @@ a:hover {
   padding: 0.9rem;
   width: 100%;
 }
+
+.login-page button {
+  font-size: 1.1rem;
+  padding: 0.9rem;
+  width: 100%;
+  background-color: var(--accent); /* QBA Pink */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.login-page button:hover {
+  background-color: #c70074; /* darker pink on hover */
+}
+
+.pink-button {
+  background-color: #ec008c;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pink-button:hover {
+  background-color: #c70074;
+}
