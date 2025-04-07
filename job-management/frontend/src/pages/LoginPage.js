@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./../App.css"; // Make sure to import your CSS
+import "./../App.css";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -56,7 +57,14 @@ function LoginPage() {
 
   return (
     <div className="container">
-      <h1>QBA Jobs</h1>
+      <Link to="https://qbadvisory.us/" style={{ position: "absolute", top: "20px", left: "20px" }}>
+  <img
+    src="QBA.png"
+    alt="QBA Logo"
+    style={{ height: "60px", cursor: "pointer" }}
+  />
+</Link>
+      <h1>QBA Carrer Center</h1>
       <h2 className="mb-1">Login</h2>
       <form onSubmit={handleLogin}>
         <input

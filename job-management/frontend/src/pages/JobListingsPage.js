@@ -42,7 +42,7 @@ function JobListingsPage() {
           </Link>
         </div>
       )}
-      <Link to="/jobs" style={{ position: "absolute", top: "20px", left: "20px" }}>
+      <Link to="/login" style={{ position: "absolute", top: "20px", left: "20px" }}>
   <img
     src="QBA.png"
     alt="QBA Logo"
@@ -61,7 +61,8 @@ function JobListingsPage() {
       <div className="filter-section" style={{ marginBottom: "1.5rem" }}>
         <input
           type="text"
-          placeholder="Filter by title"
+          placeholder="Filter By Job Title"
+          size={20}
           value={titleFilter}
           onChange={(e) => {
             setOffset(0);

@@ -1,41 +1,56 @@
-/* JobTable.css */
+/* JobTable.css - QBA Themed */
 
 .job-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0 auto; /* optional, to center the table */
-    font-family: Arial, sans-serif;
-  }
-  
-  .job-table thead {
-    background-color: #f9f9f9;
-  }
-  
-  .job-table th,
-  .job-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  /* Optional: highlight row on hover */
-  .job-table tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Style for the edit button */
-  .edit-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.2s ease;
-  }
-  
-  .edit-button:hover {
-    background-color: #0056b3;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.job-table thead {
+  background-color: #eef1f4;
+}
+
+.job-table th,
+.job-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.job-table th {
+  color: #0c2954; /* QBA Primary Navy */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+}
+
+/* Row hover effect */
+.job-table tbody tr:hover {
+  background-color: #f9f9fc;
+}
+
+/* Edit button */
+.edit-button {
+  background-color: #0c2954; /* QBA navy */
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.edit-button:hover {
+  background-color: #061a35; /* darker navy on hover */
+}

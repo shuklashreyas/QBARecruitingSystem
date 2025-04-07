@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CreateJobPage.css";
 import countries from "world-countries";
+import { Link } from "react-router-dom";
 
 function CreateJobPage() {
   const navigate = useNavigate();
@@ -45,6 +46,12 @@ QBA is an equal opportunity employer that values diversity and inclusion. We are
 For accommodations during the application process, please contact us at [accommodations@qba.com](mailto:accommodations@qba.com).
 
 Learn more about how QBA processes your personal information by reading our Privacy Notice.`;
+const formatAsBullets = (text) =>
+  text
+    .split("\n")
+    .filter((line) => line.trim() !== "")
+    .map((line) => `- ${line.trim()}`)
+    .join("\n");
 
     const detailedDescription = `
 ${aboutQBA}
@@ -52,19 +59,18 @@ ${aboutQBA}
 ---
 
 ### Job Role
-${jobRole}
-
+${formatAsBullets(jobRole)}
 ---
 
 ### What You’ll Do
-${whatYouDo}
+${formatAsBullets(whatYouDo)}
 
 ---
 
 ### Qualifications
-${qualifications}
+${formatAsBullets(qualifications)}
 
-${plusIfYouHave ? `\n---\n### A Plus if You Have\n${plusIfYouHave}\n` : ""}
+${plusIfYouHave ? `\n---\n### A Plus if You Have\n${formatAsBullets(plusIfYouHave)}\n` : ""}
 
 ---
 
@@ -110,6 +116,13 @@ ${accommodations}`;
 
   return (
     <div className="container create-job-page">
+      <Link to="/jobs" style={{ position: "absolute", top: "20px", left: "20px" }}>
+  <img
+    src="\QBA.png"
+    alt="QBA Logo"
+    style={{ height: "60px", cursor: "pointer" }}
+  />
+</Link>
       <h1>Create New Job</h1>
       <form onSubmit={handleSubmit}>
         <div>
