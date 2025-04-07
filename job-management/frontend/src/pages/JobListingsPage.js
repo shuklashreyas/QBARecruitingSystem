@@ -7,7 +7,7 @@ import JobTable from "../components/JobTable";
 function JobListingsPage() {
   const [jobs, setJobs] = useState([]);
   const [titleFilter, setTitleFilter] = useState("");
-  const [limit] = useState(15);
+  const [limit] = useState(14);
   const [offset, setOffset] = useState(0);
 
   const currentUser = localStorage.getItem("user") 
@@ -53,23 +53,12 @@ function JobListingsPage() {
       {currentUser?.role === "applicant" && (
         <div style={{ marginBottom: "1.5rem", textAlign: "right" }}>
           <Link to="/my-applications">
-            <button>View My Applications</button>
+          <button className="pink-button">View My Applications</button>
           </Link>
         </div>
       )}
 
-      <div className="filter-section" style={{ marginBottom: "1.5rem" }}>
-        <input
-          type="text"
-          placeholder="Filter By Job Title"
-          size={20}
-          value={titleFilter}
-          onChange={(e) => {
-            setOffset(0);
-            setTitleFilter(e.target.value);
-          }}
-        />
-      </div>
+      
 
       <JobTable jobs={jobs} currentUser={currentUser} />
 
