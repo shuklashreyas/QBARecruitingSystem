@@ -1,55 +1,73 @@
+/* JobTable.css - QBA Styled */
+
 .job-table {
-    width: 100%;
-    border-collapse: collapse;
-    /* Ensures the entire table has a white background */
-    background-color: #fff; 
-    font-family: sans-serif;
-  }
-  
-  /* Table header styling */
-  .job-table thead th {
-    background-color: #f2f2f2;
-    text-align: left;
-    padding: 10px;
-  }
-  
-  /* Table body rows */
-  .job-table tbody tr {
-    /* Keep rows white if you want a uniform look */
-    background-color: #fff; 
-  }
-  
-  /* Cells in the table body */
-  .job-table td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  /* "Edit" column heading can be centered or left, as you prefer */
-  .job-table th.edit-col {
-    text-align: center;
-    width: 80px;
-  }
-  
-  /* Cells in the "Edit" column */
-  .job-table td.edit-col {
-    text-align: center; 
-  }
-  
-  /* Edit button styling */
-  .edit-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.2s ease;
-    outline: none;
-  }
-  
-  .edit-button:hover {
-    background-color: #0056b3;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  color: #0c2954;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Table Header */
+.job-table thead th {
+  background-color: #eef1f4;
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+  color: #0c2954;
+}
+
+/* Body Rows */
+.job-table tbody tr {
+  background-color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.job-table tbody tr:hover {
+  background-color: #f8f8f8;
+}
+
+/* Table Cells */
+.job-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+}
+
+/* Edit Column Header */
+.job-table th.edit-col {
+  text-align: center;
+  width: 80px;
+}
+
+/* Edit Column Cell */
+.job-table td.edit-col {
+  text-align: center;
+}
+
+/* Edit Button */
+.edit-button {
+  background-color: #0c2954;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  outline: none;
+}
+
+.edit-button:hover {
+  background-color: #061a35;
+}
+
+.job-table th,
+.job-table td {
+  font-size: 1rem; /* Default: try 1.1rem or 16px for larger text */
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}

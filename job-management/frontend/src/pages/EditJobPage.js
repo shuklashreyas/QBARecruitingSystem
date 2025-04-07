@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import countries from "world-countries";
 import "./EditJobPage.css";
+import { Link } from "react-router-dom";
 
 const US_STATES = [
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
@@ -75,6 +76,8 @@ function EditJobPage() {
       .catch((error) => console.error("Error fetching job data:", error));
   }, [jobId]);
 
+
+  
   const buildDetailedDescription = () => {
     return `## About QBA
 
@@ -187,6 +190,13 @@ Learn more about how QBA processes your personal information by reading our Priv
 
   return (
     <div className="container edit-job-page">
+      <Link to="/jobs" style={{ position: "absolute", top: "20px", left: "20px" }}>
+  <img
+    src="\QBA.png"
+    alt="QBA Logo"
+    style={{ height: "60px", cursor: "pointer" }}
+  />
+</Link>
       <button className="delete-button" onClick={handleDelete} style={{ backgroundColor: "#dc3545", marginTop: "1rem" }}>
         Delete This Job
       </button>

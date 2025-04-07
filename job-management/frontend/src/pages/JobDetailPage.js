@@ -88,7 +88,7 @@ function JobDetailPage() {
     formData.append("responses", JSON.stringify(responses));
     formData.append("resume", e.target.resume.files[0]);
 
-    if (e.target.cv?.files[0]) formData.append("cv", e.target.cv.files[0]);
+
     if (e.target.transcript?.files[0]) formData.append("transcript", e.target.transcript.files[0]);
     if (e.target.cover_letter?.files[0]) formData.append("cover_letter", e.target.cover_letter.files[0]);
 
@@ -181,8 +181,7 @@ function JobDetailPage() {
 
                   <fieldset>
                     <legend>Documents</legend>
-                    <label>Resume: <input type="file" name="resume" accept=".pdf,.doc,.docx" required /></label>
-                    <label>CV: <input type="file" name="cv" accept=".pdf,.doc,.docx" /></label>
+                    <label>Resume (PDF): <input type="file" name="resume" accept=".pdf,.doc,.docx" required /></label>
                     {job.other_materials?.includes("transcript") && (
                       <label>Transcript: <input type="file" name="transcript" accept=".pdf" /></label>
                     )}
