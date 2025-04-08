@@ -64,7 +64,7 @@ function LoginPage() {
     style={{ height: "60px", cursor: "pointer" }}
   />
 </Link>
-      <h1>QBA Carrer Center</h1>
+      <h1>QBA Career Center</h1>
       <form onSubmit={handleLogin}>
         <input
           type="text"
