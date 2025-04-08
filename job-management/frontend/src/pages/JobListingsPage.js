@@ -53,7 +53,7 @@ function JobListingsPage() {
       {currentUser?.role === "applicant" && (
         <div style={{ marginBottom: "1.5rem", textAlign: "right" }}>
           <Link to="/my-applications">
-          <button className="pink-button">View My Applications</button>
+          <button className="pink-buttonnowidth">View My Applications</button>
           </Link>
         </div>
       )}

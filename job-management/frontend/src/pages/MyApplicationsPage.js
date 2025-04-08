@@ -34,6 +34,13 @@ function MyApplicationsPage() {
 
   return (
     <div className="container">
+      <Link to="/jobs" style={{ position: "absolute", top: "20px", left: "20px" }}>
+        <img
+          src="QBA.png"
+          alt="QBA Logo"
+          style={{ height: "60px", cursor: "pointer" }}
+        />
+      </Link>
       <h1>My Applications</h1>
       {applications.length === 0 ? (
         <p>You haven't applied to any jobs yet.</p>
