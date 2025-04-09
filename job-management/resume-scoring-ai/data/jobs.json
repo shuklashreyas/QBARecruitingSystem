@@ -1,5 +1,502 @@
 [
-    { "text": "Hiring backend developers familiar with Flask, Python, and APIs." },
-    { "text": "Looking for digital marketers to improve SEO and brand presence." }
-  ]
-  
+  {
+    "title": "Business Analyst",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nBusiness Analyst\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nCollaborate with teams across departments\nAnalyze trends to improve performance\n\nQualifications:\nExperience with cross-functional teams\nAnalytical thinking and problem-solving skills\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Digital Marketing Specialist",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nDigital Marketing Specialist\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nEnsure alignment with organizational goals\nDesign and implement new systems and workflows\n\nQualifications:\nExperience with cross-functional teams\nBachelor's degree in relevant field\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Business Analyst",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nBusiness Analyst\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nEnsure alignment with organizational goals\nCollaborate with teams across departments\n\nQualifications:\nStrong communication and collaboration skills\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Visual Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nVisual Designer\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nMaintain documentation and reports\nCollaborate with teams across departments\n\nQualifications:\nAbility to manage multiple priorities\nStrong communication and collaboration skills\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "HR Generalist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nHR Generalist\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nCollaborate with teams across departments\nAnalyze trends to improve performance\n\nQualifications:\nStrong communication and collaboration skills\nBachelor's degree in relevant field\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Supply Chain Coordinator",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nSupply Chain Coordinator\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\n\nQualifications:\nBachelor's degree in relevant field\nAnalytical thinking and problem-solving skills\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Frontend Developer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFrontend Developer\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nBachelor's degree in relevant field\nAnalytical thinking and problem-solving skills\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Frontend Developer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFrontend Developer\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nEnsure alignment with organizational goals\nDesign and implement new systems and workflows\n\nQualifications:\nAnalytical thinking and problem-solving skills\nExperience with cross-functional teams\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "SEO Analyst",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nSEO Analyst\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nEnsure alignment with organizational goals\nCollaborate with teams across departments\n\nQualifications:\nStrong communication and collaboration skills\nAnalytical thinking and problem-solving skills\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Risk Manager",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nRisk Manager\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nMaintain documentation and reports\nAnalyze trends to improve performance\n\nQualifications:\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Accountant",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nAccountant\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nEnsure alignment with organizational goals\nDesign and implement new systems and workflows\n\nQualifications:\nStrong communication and collaboration skills\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Strategy Consultant",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nStrategy Consultant\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nMaintain documentation and reports\nAnalyze trends to improve performance\n\nQualifications:\nExperience with cross-functional teams\nBachelor's degree in relevant field\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "DevOps Engineer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nDevOps Engineer\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\nCollaborate with teams across departments\n\nQualifications:\nBachelor's degree in relevant field\nAnalytical thinking and problem-solving skills\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "HR Generalist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nHR Generalist\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nCollaborate with teams across departments\nEnsure alignment with organizational goals\n\nQualifications:\nAnalytical thinking and problem-solving skills\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Graphic Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nGraphic Designer\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nMaintain documentation and reports\nAnalyze trends to improve performance\n\nQualifications:\nExperience with cross-functional teams\nAbility to manage multiple priorities\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "UX Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nUX Designer\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nAnalyze trends to improve performance\nMaintain documentation and reports\n\nQualifications:\nAnalytical thinking and problem-solving skills\nExperience with cross-functional teams\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Supply Chain Coordinator",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nSupply Chain Coordinator\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nEnsure alignment with organizational goals\nDesign and implement new systems and workflows\n\nQualifications:\nBachelor's degree in relevant field\nExperience with cross-functional teams\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Backend Engineer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nBackend Engineer\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nAbility to manage multiple priorities\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "UX Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nUX Designer\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nMaintain documentation and reports\nEnsure alignment with organizational goals\n\nQualifications:\nAbility to manage multiple priorities\nExperience with cross-functional teams\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Accountant",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nAccountant\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nMaintain documentation and reports\nEnsure alignment with organizational goals\n\nQualifications:\nAnalytical thinking and problem-solving skills\nExperience with cross-functional teams\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Operations Manager",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nOperations Manager\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nMaintain documentation and reports\nCollaborate with teams across departments\n\nQualifications:\nExperience with cross-functional teams\nAbility to manage multiple priorities\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Investment Associate",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nInvestment Associate\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\nCollaborate with teams across departments\n\nQualifications:\nExperience with cross-functional teams\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "UX Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nUX Designer\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nEnsure alignment with organizational goals\nCollaborate with teams across departments\n\nQualifications:\nAbility to manage multiple priorities\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Frontend Developer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFrontend Developer\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nCollaborate with teams across departments\nEnsure alignment with organizational goals\n\nQualifications:\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "SEO Analyst",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nSEO Analyst\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nAnalytical thinking and problem-solving skills\nExperience with cross-functional teams\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Operations Manager",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nOperations Manager\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nDesign and implement new systems and workflows\nEnsure alignment with organizational goals\n\nQualifications:\nAnalytical thinking and problem-solving skills\nAbility to manage multiple priorities\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Accountant",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nAccountant\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nDesign and implement new systems and workflows\nAnalyze trends to improve performance\n\nQualifications:\nBachelor's degree in relevant field\nStrong communication and collaboration skills\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "SEO Analyst",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nSEO Analyst\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nEnsure alignment with organizational goals\nDesign and implement new systems and workflows\n\nQualifications:\nStrong communication and collaboration skills\nAnalytical thinking and problem-solving skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Strategy Consultant",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nStrategy Consultant\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nDesign and implement new systems and workflows\nEnsure alignment with organizational goals\n\nQualifications:\nStrong communication and collaboration skills\nBachelor's degree in relevant field\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Strategy Consultant",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nStrategy Consultant\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nEnsure alignment with organizational goals\nCollaborate with teams across departments\n\nQualifications:\nStrong communication and collaboration skills\nAbility to manage multiple priorities\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Risk Manager",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nRisk Manager\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nMaintain documentation and reports\nAnalyze trends to improve performance\n\nQualifications:\nExperience with cross-functional teams\nAnalytical thinking and problem-solving skills\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "SEO Analyst",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nSEO Analyst\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nCollaborate with teams across departments\nAnalyze trends to improve performance\n\nQualifications:\nAnalytical thinking and problem-solving skills\nAbility to manage multiple priorities\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Financial Analyst",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFinancial Analyst\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nEnsure alignment with organizational goals\nCollaborate with teams across departments\n\nQualifications:\nBachelor's degree in relevant field\nAbility to manage multiple priorities\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "DevOps Engineer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nDevOps Engineer\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nExperience with cross-functional teams\nAnalytical thinking and problem-solving skills\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Digital Marketing Specialist",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nDigital Marketing Specialist\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nAbility to manage multiple priorities\nExperience with cross-functional teams\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "HR Business Partner",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nHR Business Partner\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nDesign and implement new systems and workflows\nMaintain documentation and reports\n\nQualifications:\nStrong communication and collaboration skills\nAbility to manage multiple priorities\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "DevOps Engineer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nDevOps Engineer\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\nCollaborate with teams across departments\n\nQualifications:\nStrong communication and collaboration skills\nBachelor's degree in relevant field\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Content Strategist",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nContent Strategist\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nAnalyze trends to improve performance\nMaintain documentation and reports\n\nQualifications:\nAbility to manage multiple priorities\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Operations Manager",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nOperations Manager\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nEnsure alignment with organizational goals\nMaintain documentation and reports\n\nQualifications:\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Supply Chain Coordinator",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nSupply Chain Coordinator\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nCollaborate with teams across departments\nMaintain documentation and reports\n\nQualifications:\nAnalytical thinking and problem-solving skills\nExperience with cross-functional teams\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Talent Acquisition Specialist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nTalent Acquisition Specialist\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nStrong communication and collaboration skills\nAbility to manage multiple priorities\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Visual Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nVisual Designer\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nDesign and implement new systems and workflows\nMaintain documentation and reports\n\nQualifications:\nBachelor's degree in relevant field\nExperience with cross-functional teams\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "DevOps Engineer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nDevOps Engineer\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nAbility to manage multiple priorities\nBachelor's degree in relevant field\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Financial Analyst",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFinancial Analyst\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nBachelor's degree in relevant field\nStrong communication and collaboration skills\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Operations Manager",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nOperations Manager\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Content Strategist",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nContent Strategist\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nAnalyze trends to improve performance\nEnsure alignment with organizational goals\n\nQualifications:\nAbility to manage multiple priorities\nExperience with cross-functional teams\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Investment Associate",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nInvestment Associate\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nAnalyze trends to improve performance\nEnsure alignment with organizational goals\n\nQualifications:\nAbility to manage multiple priorities\nBachelor's degree in relevant field\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Risk Manager",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nRisk Manager\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nDesign and implement new systems and workflows\nCollaborate with teams across departments\n\nQualifications:\nExperience with cross-functional teams\nAbility to manage multiple priorities\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Frontend Developer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFrontend Developer\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\nMaintain documentation and reports\n\nQualifications:\nBachelor's degree in relevant field\nExperience with cross-functional teams\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Brand Manager",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nBrand Manager\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nMaintain documentation and reports\nAnalyze trends to improve performance\n\nQualifications:\nExperience with cross-functional teams\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Accountant",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nAccountant\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nCollaborate with teams across departments\nAnalyze trends to improve performance\n\nQualifications:\nAbility to manage multiple priorities\nExperience with cross-functional teams\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Operations Manager",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nOperations Manager\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nMaintain documentation and reports\nEnsure alignment with organizational goals\n\nQualifications:\nBachelor's degree in relevant field\nExperience with cross-functional teams\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Strategy Consultant",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nStrategy Consultant\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\nMaintain documentation and reports\n\nQualifications:\nStrong communication and collaboration skills\nBachelor's degree in relevant field\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "HR Generalist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nHR Generalist\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nAnalyze trends to improve performance\nMaintain documentation and reports\n\nQualifications:\nAbility to manage multiple priorities\nStrong communication and collaboration skills\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Talent Acquisition Specialist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nTalent Acquisition Specialist\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\n\nQualifications:\nAbility to manage multiple priorities\nExperience with cross-functional teams\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Graphic Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nGraphic Designer\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nAnalyze trends to improve performance\nEnsure alignment with organizational goals\n\nQualifications:\nAbility to manage multiple priorities\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Supply Chain Coordinator",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nSupply Chain Coordinator\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nAnalyze trends to improve performance\nMaintain documentation and reports\n\nQualifications:\nStrong communication and collaboration skills\nBachelor's degree in relevant field\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Risk Manager",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nRisk Manager\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\n\nQualifications:\nBachelor's degree in relevant field\nAnalytical thinking and problem-solving skills\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "HR Business Partner",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nHR Business Partner\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nCollaborate with teams across departments\nDesign and implement new systems and workflows\n\nQualifications:\nAnalytical thinking and problem-solving skills\nExperience with cross-functional teams\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Digital Marketing Specialist",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nDigital Marketing Specialist\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\n\nQualifications:\nAbility to manage multiple priorities\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Accountant",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nAccountant\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nMaintain documentation and reports\nDesign and implement new systems and workflows\n\nQualifications:\nExperience with cross-functional teams\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Strategy Consultant",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nStrategy Consultant\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\n\nQualifications:\nExperience with cross-functional teams\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nMachine Learning Engineer\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nAnalyze trends to improve performance\nMaintain documentation and reports\n\nQualifications:\nBachelor's degree in relevant field\nAbility to manage multiple priorities\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Frontend Developer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFrontend Developer\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nCollaborate with teams across departments\nAnalyze trends to improve performance\n\nQualifications:\nBachelor's degree in relevant field\nStrong communication and collaboration skills\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Frontend Developer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFrontend Developer\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nMaintain documentation and reports\nAnalyze trends to improve performance\n\nQualifications:\nAnalytical thinking and problem-solving skills\nBachelor's degree in relevant field\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Investment Associate",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nInvestment Associate\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nDesign and implement new systems and workflows\nCollaborate with teams across departments\n\nQualifications:\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Visual Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nVisual Designer\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nCollaborate with teams across departments\nMaintain documentation and reports\n\nQualifications:\nStrong communication and collaboration skills\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Product Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nProduct Designer\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nCollaborate with teams across departments\nAnalyze trends to improve performance\n\nQualifications:\nBachelor's degree in relevant field\nStrong communication and collaboration skills\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Talent Acquisition Specialist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nTalent Acquisition Specialist\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nAnalyze trends to improve performance\nEnsure alignment with organizational goals\n\nQualifications:\nBachelor's degree in relevant field\nExperience with cross-functional teams\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Talent Acquisition Specialist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nTalent Acquisition Specialist\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nCollaborate with teams across departments\nEnsure alignment with organizational goals\n\nQualifications:\nBachelor's degree in relevant field\nAnalytical thinking and problem-solving skills\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Operations Manager",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nOperations Manager\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nCollaborate with teams across departments\nMaintain documentation and reports\n\nQualifications:\nAnalytical thinking and problem-solving skills\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Strategy Consultant",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nStrategy Consultant\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nMaintain documentation and reports\nCollaborate with teams across departments\n\nQualifications:\nStrong communication and collaboration skills\nAnalytical thinking and problem-solving skills\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Risk Manager",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nRisk Manager\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nMaintain documentation and reports\nCollaborate with teams across departments\n\nQualifications:\nStrong communication and collaboration skills\nAbility to manage multiple priorities\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Visual Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nVisual Designer\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nMaintain documentation and reports\nDesign and implement new systems and workflows\n\nQualifications:\nAbility to manage multiple priorities\nBachelor's degree in relevant field\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "DevOps Engineer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nDevOps Engineer\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\nEnsure alignment with organizational goals\n\nQualifications:\nAnalytical thinking and problem-solving skills\nBachelor's degree in relevant field\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Backend Engineer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nBackend Engineer\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nCollaborate with teams across departments\nDesign and implement new systems and workflows\n\nQualifications:\nStrong communication and collaboration skills\nAbility to manage multiple priorities\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Strategy Consultant",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nStrategy Consultant\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nCollaborate with teams across departments\nAnalyze trends to improve performance\n\nQualifications:\nExperience with cross-functional teams\nAbility to manage multiple priorities\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Investment Associate",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nInvestment Associate\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nDesign and implement new systems and workflows\nEnsure alignment with organizational goals\n\nQualifications:\nExperience with cross-functional teams\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Backend Engineer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nBackend Engineer\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nMaintain documentation and reports\nEnsure alignment with organizational goals\n\nQualifications:\nBachelor's degree in relevant field\nStrong communication and collaboration skills\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Content Strategist",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nContent Strategist\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\nMaintain documentation and reports\n\nQualifications:\nStrong communication and collaboration skills\nAnalytical thinking and problem-solving skills\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "UX Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nUX Designer\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nMaintain documentation and reports\nCollaborate with teams across departments\n\nQualifications:\nBachelor's degree in relevant field\nExperience with cross-functional teams\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Accountant",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nAccountant\n\nWhat You\u2019ll Do:\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\nEnsure alignment with organizational goals\n\nQualifications:\nAnalytical thinking and problem-solving skills\nExperience with cross-functional teams\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Strategy Consultant",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nStrategy Consultant\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nAnalyze trends to improve performance\nEnsure alignment with organizational goals\n\nQualifications:\nBachelor's degree in relevant field\nAnalytical thinking and problem-solving skills\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Content Strategist",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nContent Strategist\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nAnalyze trends to improve performance\nCollaborate with teams across departments\n\nQualifications:\nAnalytical thinking and problem-solving skills\nStrong communication and collaboration skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "HR Generalist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nHR Generalist\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nDesign and implement new systems and workflows\nEnsure alignment with organizational goals\n\nQualifications:\nExperience with cross-functional teams\nBachelor's degree in relevant field\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Risk Manager",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nRisk Manager\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nAnalyze trends to improve performance\nEnsure alignment with organizational goals\n\nQualifications:\nStrong communication and collaboration skills\nAbility to manage multiple priorities\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Frontend Developer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFrontend Developer\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nCollaborate with teams across departments\nDesign and implement new systems and workflows\n\nQualifications:\nExperience with cross-functional teams\nAbility to manage multiple priorities\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "HR Generalist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nHR Generalist\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nStrong communication and collaboration skills\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Brand Manager",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nBrand Manager\n\nWhat You\u2019ll Do:\nCollaborate with teams across departments\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\n\nQualifications:\nAbility to manage multiple priorities\nBachelor's degree in relevant field\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Investment Associate",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nInvestment Associate\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nDesign and implement new systems and workflows\nMaintain documentation and reports\n\nQualifications:\nExperience with cross-functional teams\nStrong communication and collaboration skills\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Accountant",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nAccountant\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nCollaborate with teams across departments\nDesign and implement new systems and workflows\n\nQualifications:\nAnalytical thinking and problem-solving skills\nExperience with cross-functional teams\nAbility to manage multiple priorities\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Frontend Developer",
+    "category": "Software Engineering",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFrontend Developer\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nCollaborate with teams across departments\nAnalyze trends to improve performance\n\nQualifications:\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\nBachelor's degree in relevant field\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Risk Manager",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nRisk Manager\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nCollaborate with teams across departments\nMaintain documentation and reports\n\nQualifications:\nAnalytical thinking and problem-solving skills\nAbility to manage multiple priorities\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Business Analyst",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nBusiness Analyst\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nAnalyze trends to improve performance\nDesign and implement new systems and workflows\n\nQualifications:\nBachelor's degree in relevant field\nStrong communication and collaboration skills\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Business Analyst",
+    "category": "Business & Operations",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nBusiness Analyst\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nMaintain documentation and reports\nCollaborate with teams across departments\n\nQualifications:\nBachelor's degree in relevant field\nAbility to manage multiple priorities\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Financial Analyst",
+    "category": "Finance",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nFinancial Analyst\n\nWhat You\u2019ll Do:\nMaintain documentation and reports\nCollaborate with teams across departments\nEnsure alignment with organizational goals\n\nQualifications:\nAbility to manage multiple priorities\nStrong communication and collaboration skills\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Content Strategist",
+    "category": "Marketing",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nContent Strategist\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nMaintain documentation and reports\nAnalyze trends to improve performance\n\nQualifications:\nAnalytical thinking and problem-solving skills\nBachelor's degree in relevant field\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Talent Acquisition Specialist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nTalent Acquisition Specialist\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nMaintain documentation and reports\nCollaborate with teams across departments\n\nQualifications:\nAbility to manage multiple priorities\nBachelor's degree in relevant field\nStrong communication and collaboration skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "HR Generalist",
+    "category": "Human Resources",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nHR Generalist\n\nWhat You\u2019ll Do:\nDesign and implement new systems and workflows\nCollaborate with teams across departments\nEnsure alignment with organizational goals\n\nQualifications:\nStrong communication and collaboration skills\nExperience with cross-functional teams\nAnalytical thinking and problem-solving skills\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  },
+  {
+    "title": "Product Designer",
+    "category": "Design",
+    "description": "QBA is a forward-thinking company delivering innovative solutions across various industries. We foster a collaborative, growth-oriented environment where talent is nurtured and ideas are valued.\n\nJob Role:\nProduct Designer\n\nWhat You\u2019ll Do:\nEnsure alignment with organizational goals\nDesign and implement new systems and workflows\nAnalyze trends to improve performance\n\nQualifications:\nAbility to manage multiple priorities\nStrong communication and collaboration skills\nExperience with cross-functional teams\n\nAccommodations:\nQBA is committed to diversity and equal opportunity. For any accommodations, contact us at accommodations@qba.com."
+  }
+]

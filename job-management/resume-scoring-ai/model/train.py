@@ -1,43 +1,45 @@
 import pickle
+import json
+import pandas as pd
 from tensorflow.keras import layers, models
-from preprocess import load_and_prepare_data, get_vectorized_data
+from preprocess import get_vectorized_data
 
-# Paths to your datasets
-resume_path = "../data/synthetic_resumes.json"
-job_path = "../data/synthetic_jobs.json"
-label_path = "../data/synthetic_labels.csv"
-
-# 1. Load and preprocess data
+# Load pre-generated data
 print("📦 Loading and preprocessing data...")
-texts, labels = load_and_prepare_data(resume_path, job_path, label_path)
+with open("data/combined_texts.json", "r") as f:
+    data = json.load(f)
+
+texts = [item["resume"] + " [SEP] " + item["job"] for item in data]
+labels = pd.read_csv("data/scores.csv")["score"].values
+
 X_train, X_test, y_train, y_test, vectorizer = get_vectorized_data(
     texts, labels)
 
-# 2. Define a simple feedforward neural network
-print("🧠 Building the model...")
+# Build model
+print("🧠 Building the enhanced model...")
 model = models.Sequential([
     layers.Input(shape=(X_train.shape[1],)),
+    layers.Dense(256, activation="relu"),
+    layers.Dropout(0.4),
     layers.Dense(128, activation="relu"),
     layers.Dropout(0.3),
-    layers.Dense(64, activation="relu"),
-    layers.Dense(1, activation="sigmoid")  # Output score between 0 and 1
+    layers.Dense(1, activation="sigmoid")
 ])
 
 model.compile(optimizer="adam", loss="mean_squared_error", metrics=["mae"])
 
-# 3. Train the model
+# Train
 print("🚀 Training...")
-model.fit(X_train, y_train, epochs=10, batch_size=32)
+model.fit(X_train, y_train, epochs=20, batch_size=32)
 
-# 4. Evaluate the model
+# Evaluate
 print("📊 Evaluating...")
 loss, mae = model.evaluate(X_test, y_test)
 print(f"Test MAE: {mae:.4f}")
 
-# 5. Save the model + vectorizer
+# Save model & vectorizer
 print("💾 Saving model and vectorizer...")
 model.save("saved_model/resume_matcher.h5")
-
 with open("saved_model/vectorizer.pkl", "wb") as f:
     pickle.dump(vectorizer, f)
 
