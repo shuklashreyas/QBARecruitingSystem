@@ -119,13 +119,23 @@ def get_application_detail(
 
     user = db.query(User).filter(User.id == application.user_id).first()
 
+    # 🧠 Add this to fetch the related job
+    job = db.query(Job).filter(Job.id == application.job_id).first()
+    if not job:
+        raise HTTPException(status_code=404, detail="Related job not found")
+
     return {
         "id": application.id,
         "user_id": application.user_id,
         "user_name": user.name if user else None,
         "responses": application.responses,
         "resume_url": application.resume_url,
-        "status": application.status.value
+        "status": application.status.value,
+        "job": {
+            "id": job.id,
+            "title": job.title,
+            "description": job.detailed_description,
+        }
     }
 
 
