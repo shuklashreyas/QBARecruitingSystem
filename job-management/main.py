@@ -1,4 +1,5 @@
 # file: main.py
+import io
 from app.routes.recruiter_jobs import router as recruiter_router
 from app.routes.auth import router as auth_router
 from app.routes.jobs import router as job_router
@@ -13,6 +14,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from app.routes import application
 from fastapi.staticfiles import StaticFiles
+
+
+from fastapi import Form
+from tensorflow.keras.models import load_model
+import pickle
+from resume_scoring_ai.model.preprocess import clean_text
+from fastapi import UploadFile
+from PyPDF2 import PdfReader
+
 
 load_dotenv()
 
@@ -51,3 +61,20 @@ def get_jobs(token: str = Depends(oauth2_scheme)):
 @app.get("/")
 def home():
     return {"message": "Job Management API is running"}
+
+
+@app.post("/score-resume-pdf")
+async def score_resume_pdf(file: UploadFile, job_text: str = Form(...)):
+    reader = PdfReader(file.file)
+    resume_text = "\n".join(
+        [page.extract_text() or "" for page in reader.pages])
+
+    combined = clean_text(resume_text) + " [SEP] " + clean_text(job_text)
+
+    model = load_model("resume_scoring_ai/saved_model/resume_matcher.h5")
+    with open("resume_scoring_ai/saved_model/vectorizer.pkl", "rb") as f:
+        vectorizer = pickle.load(f)
+
+    vectorized = vectorizer.transform([combined]).toarray()
+    score = float(model.predict(vectorized)[0][0])
+    return {"score": round(score, 4)}
