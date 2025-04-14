@@ -151,7 +151,7 @@ function ApplicantReviewPage() {
               color: "#0b5394",
             }}
           >
-            🤖 Resume Match Score: {matchScore}
+            🤖 Resume Score Based on Job-Description: {`${matchScore * 100}%`}
           </div>
         )}
 
