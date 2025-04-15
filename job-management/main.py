@@ -60,6 +60,7 @@ def home():
     return {"message": "Job Management API is running"}
 
 
+# test message
 bert_tokenizer = pickle.load(
     open("resume_scoring_ai/bert_model/bert_tokenizer.pkl", "rb")
 )
