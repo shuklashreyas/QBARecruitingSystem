@@ -20,3 +20,5 @@ Thumbs.db
 # Ignore logs and temp files
 logs/
 *.log
+
+resume_scoring_ai/
