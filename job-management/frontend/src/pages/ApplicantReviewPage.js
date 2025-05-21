@@ -6,6 +6,7 @@ function ApplicantReviewPage() {
   const navigate = useNavigate();
   const [application, setApplication] = useState(null);
   const [matchScore, setMatchScore] = useState(null);
+  const [parsedResume, setParsedResume] = useState(null);
 
   useEffect(() => {
     const fetchApplication = async () => {
@@ -42,6 +43,19 @@ function ApplicantReviewPage() {
           const scoreData = await scoreRes.json();
           console.log("✅ Score received:", scoreData);
           setMatchScore(scoreData.score);
+
+          // Resume parsing
+          const parseFormData = new FormData();
+          parseFormData.append("file", resumeBlob, "resume.pdf");
+
+          const parseRes = await fetch("http://localhost:8000/resume-parser/parse-resume", {
+            method: "POST",
+            body: parseFormData,
+          });
+          const parseData = await parseRes.json();
+          console.log("🧠 Resume parsed:", parseData);
+          setParsedResume(parseData);
+
         } else {
           console.warn("⚠️ Missing resume or job description. Skipping score request.");
         }
@@ -146,12 +160,34 @@ function ApplicantReviewPage() {
               padding: "15px",
               backgroundColor: "#e7f3fe",
               borderLeft: "6px solid #2196F3",
-              fontSize: "1.2rem",
+              fontSize: "1.3rem",
               fontWeight: "bold",
               color: "#0b5394",
             }}
           >
             🤖 Resume Score Based on Job-Description: {`${matchScore * 100}%`}
+          </div>
+        )}
+
+        {/* Parsed Resume Info */}
+        {parsedResume && (
+          <div
+            style={{
+              marginTop: "30px",
+              padding: "15px",
+              backgroundColor: "#fff3cd",
+              borderLeft: "6px solid #ffc107",
+              fontSize: "1.2rem",
+              color: "#664d03",
+            }}
+          >
+            <h3 style={{ marginTop: 0 }}>🧠 Parsed Resume Data</h3>
+            <p><strong>Name:</strong> {parsedResume.name || "N/A"}</p>
+            <p><strong>Email:</strong> {parsedResume.email || "N/A"}</p>
+            <p><strong>Phone:</strong> {parsedResume.phone || "N/A"}</p>
+            <p><strong>Education:</strong> {parsedResume.education || "N/A"}</p>
+            <p><strong>Experience:</strong> {parsedResume.experience || "N/A"} years</p>
+            <p><strong>Skills:</strong> {(parsedResume.skills || []).join(", ")}</p>
           </div>
         )}
 

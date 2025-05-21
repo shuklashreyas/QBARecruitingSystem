@@ -105,3 +105,17 @@
 .qba-button-danger:hover {
   background-color: #b02a37;
 }
+
+.upload-pdf-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #d63384;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  width: auto;
+}
