@@ -22,3 +22,5 @@ logs/
 *.log
 
 resume_scoring_ai/
+
+job_filler_ai/
