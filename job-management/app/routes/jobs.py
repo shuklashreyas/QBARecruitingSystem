@@ -154,7 +154,7 @@ def get_job(
             grouped[app.status.value].append({
                 "id": app.id,
                 "user_id": app.user_id,
-                "user_name": user_name,  # ✅ Include user_name here
+                "user_name": user_name, 
                 "responses": app.responses,
                 "status": app.status.value
             })
