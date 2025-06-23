@@ -130,7 +130,7 @@ npm run dev
 ![Forgot Password](./images/ForgotPW.png)
 
 ![Create New Job](./images/CreateNewJob.png)
-![Recruiter View](./images/RecruiterView.png)
+![Recruiter View](./images/RecuriterView.png)
 ![Resume Scorer](./images/ResumeScorer.jpg)
 
 ![Applicant App](./images/ApplicantApp.png)
