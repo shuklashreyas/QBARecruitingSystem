@@ -105,7 +105,7 @@ npm run dev
 ```
 
 ## Images Of Frontend
-![Screenshot](./images/Login.jpg)
+![Screenshot](./images/Login.png)
 
 ## Hugging Face Repos
 
