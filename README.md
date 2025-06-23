@@ -1,5 +1,20 @@
-# QBA Recruting System
+# QBA Recruiting System
 
+## Table of Contents
+- [QBA Recruiting System](#qba-recruiting-system)
+  - [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+  - [Important Files](#important-files)
+  - [Large Scope Overview](#large-scope-overview)
+    - [Backend](#backend)
+    - [Frontend](#frontend)
+  - [Prerequisites \& Notes](#prerequisites--notes)
+  - [Installation \& Getting Started](#installation--getting-started)
+  - [Images Of Frontend](#images-of-frontend)
+  - [Hugging Face Repos](#hugging-face-repos)
+  - [Project Structure](#project-structure)
+  - [About the Team](#about-the-team)
+    - [Next Steps \& Remaining Work](#next-steps--remaining-work)
 
 # Introduction
 
@@ -8,9 +23,13 @@ From January to June 2025, I completed a co-op at Quantum Business Advisory (QBA
 [Quantum Business Advisory (QBA)](https://qbadvisory.us/) · [LinkedIn](https://www.linkedin.com/company/qbaworldwide/)
 
 
+## Important Files
+1) [Project Specs](https://drive.google.com/file/d/1XVYfHbBoo5x2amgI6H-FccZrjo18A4aY/view?usp=sharing)
+2) [Notion Journal](https://drive.google.com/file/d/1tV4ikMeScSJ8PiRQXAbhvFE3msJ4UoD1/view?usp=sharing)
+
 ## Large Scope Overview
 
-### 🏗️ Backend
+###  Backend
 
 1. **Foundation & Architecture**  
    - Chose **FastAPI** + Uvicorn for a high-performance, asynchronous REST API.  
@@ -45,7 +64,7 @@ From January to June 2025, I completed a co-op at Quantum Business Advisory (QBA
 
 ---
 
-### 🎨 Frontend
+### Frontend
 
 1. **Tech Stack & Styling**  
    - Built as a **React** SPA using **Tailwind CSS** and **shadcn/ui** components.  
@@ -105,7 +124,19 @@ npm run dev
 ```
 
 ## Images Of Frontend
-![Screenshot](./images/Login.png)
+
+![Login](./images/Login.png)
+![Create Account](./images/CreateAccount.png)
+![Forgot Password](./images/ForgotPW.png)
+
+![Create New Job](./images/CreateNewJob.png)
+![Recruiter View](./images/RecruiterView.png)
+![Resume Scorer](./images/ResumeScorer.jpg)
+
+![Applicant App](./images/ApplicantApp.png)
+![Applying](./images/Applying.png)
+![Applicant View](./images/ApplicantView.png)
+![Already Applied](./images/AlreadyApplied.png)
 
 ## Hugging Face Repos
 
@@ -143,8 +174,15 @@ npm run dev
 - **README.md**, **requirements.txt**, **alembic.ini**, etc.  
 
 
-### 🚀 Next Steps & Remaining Work
+## About the Team
 
-- **Finish Deployment**: finalize CI/CD pipeline and environment configuration.  
+- **Shreyas Shukla** - Intern
+- **Thomas Bloom** - Administrative Coordinator
+- **Kaustav Chakraborty** - Business Head of the AI/ML Vertical
+- **Probal DasGupta** - Principal Facilitator
+
+### Next Steps & Remaining Work
+
+- **Finish Deployment**: Used Docker, need to use render now
 - **Remaining Features**: interview scheduling, retrieving jobs from linkedin automatically
 - **Polish AI Features**: refine resume parser, automate interview scheduling.  
