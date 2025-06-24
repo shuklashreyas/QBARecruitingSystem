@@ -1,5 +1,7 @@
 # QBA Recruiting System
 
+![QBA](./images/QBA.jpg)
+
 ## Table of Contents
 - [QBA Recruiting System](#qba-recruiting-system)
   - [Table of Contents](#table-of-contents)
@@ -21,6 +23,7 @@
 From January to June 2025, I completed a co-op at Quantum Business Advisory (QBA) through Northeastern University’s Computer Science CO-OP program. During this time, I collaborated with a team of software engineers to architect and build an AI-driven recruitment platform that streamlines candidate sourcing, screening, and engagement.
 
 [Quantum Business Advisory (QBA)](https://qbadvisory.us/) · [LinkedIn](https://www.linkedin.com/company/qbaworldwide/)
+
 
 
 ## Important Files
